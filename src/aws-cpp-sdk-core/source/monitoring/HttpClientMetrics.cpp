@@ -18,6 +18,7 @@ namespace Aws
         static const char HTTP_CLIENT_METRICS_DNS_LATENCY[] = "DnsLatency";
         static const char HTTP_CLIENT_METRICS_TCP_LATENCY[] = "TcpLatency";
         static const char HTTP_CLIENT_METRICS_SSL_LATENCY[] = "SslLatency";
+        static const char HTTP_CLIENT_METRICS_THROUGHPUT[] = "Throughput";
         static const char HTTP_CLIENT_METRICS_UNKNOWN[] = "Unknown";
 
         using namespace Aws::Utils;
@@ -32,7 +33,8 @@ namespace Aws
                 std::pair<int, HttpClientMetricsType>(HashingUtils::HashString(HTTP_CLIENT_METRICS_REQUEST_LATENCY), HttpClientMetricsType::RequestLatency),
                 std::pair<int, HttpClientMetricsType>(HashingUtils::HashString(HTTP_CLIENT_METRICS_DNS_LATENCY), HttpClientMetricsType::DnsLatency),
                 std::pair<int, HttpClientMetricsType>(HashingUtils::HashString(HTTP_CLIENT_METRICS_TCP_LATENCY), HttpClientMetricsType::TcpLatency),
-                std::pair<int, HttpClientMetricsType>(HashingUtils::HashString(HTTP_CLIENT_METRICS_SSL_LATENCY), HttpClientMetricsType::SslLatency)
+                std::pair<int, HttpClientMetricsType>(HashingUtils::HashString(HTTP_CLIENT_METRICS_SSL_LATENCY), HttpClientMetricsType::SslLatency),
+                std::pair<int, HttpClientMetricsType>(HashingUtils::HashString(HTTP_CLIENT_METRICS_THROUGHPUT), HttpClientMetricsType::Throughput),
             };
 
             int nameHash = HashingUtils::HashString(name.c_str());
@@ -56,7 +58,8 @@ namespace Aws
                 std::pair<int, std::string>(static_cast<int>(HttpClientMetricsType::DnsLatency), HTTP_CLIENT_METRICS_DNS_LATENCY),
                 std::pair<int, std::string>(static_cast<int>(HttpClientMetricsType::TcpLatency), HTTP_CLIENT_METRICS_TCP_LATENCY),
                 std::pair<int, std::string>(static_cast<int>(HttpClientMetricsType::SslLatency), HTTP_CLIENT_METRICS_SSL_LATENCY),
-                std::pair<int, std::string>(static_cast<int>(HttpClientMetricsType::Unknown), HTTP_CLIENT_METRICS_UNKNOWN)
+                std::pair<int, std::string>(static_cast<int>(HttpClientMetricsType::Throughput), HTTP_CLIENT_METRICS_THROUGHPUT),
+                std::pair<int, std::string>(static_cast<int>(HttpClientMetricsType::Unknown), HTTP_CLIENT_METRICS_UNKNOWN),
             };
 
             auto it = metricsTypeToName.find(static_cast<int>(type));

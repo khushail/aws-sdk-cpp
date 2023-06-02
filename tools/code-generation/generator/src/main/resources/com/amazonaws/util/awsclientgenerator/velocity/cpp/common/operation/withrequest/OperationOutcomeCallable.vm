@@ -7,6 +7,7 @@
 #end#if($serviceModel.metadata.serviceId == "S3" && $operation.s3CrtEnabled)
 ${operation.name}OutcomeCallable ${className}::${operation.name}Callable(${constText}${operation.request.shape.name}& request) const
 {
+##TODO: sbiscigl here -- TBD async
   auto task = Aws::MakeShared< std::packaged_task< ${operation.name}Outcome() > >(ALLOCATION_TAG, [this, ${refText}request](){ return this->${operation.name}(request); } );
   auto packagedFunction = [task]() { (*task)(); };
   m_executor->Submit(packagedFunction);

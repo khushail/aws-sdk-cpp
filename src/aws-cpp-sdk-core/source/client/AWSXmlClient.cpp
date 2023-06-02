@@ -99,21 +99,33 @@ XmlOutcome AWSXMLClient::MakeRequest(const Aws::Http::URI& uri,
     HttpResponseOutcome httpOutcome(BASECLASS::AttemptExhaustively(uri, request, method, signerName, signerRegionOverride, signerServiceNameOverride));
     if (!httpOutcome.IsSuccess())
     {
-        return XmlOutcome(std::move(httpOutcome));
+        return smithy::components::tracing::TracingUtils::MakeCallWithTiming<XmlOutcome>(
+            [&]() -> XmlOutcome {
+                return XmlOutcome(std::move(httpOutcome));
+            },
+            "smithy.client.deserialization_duration",
+            m_telemetryProvider->getMeter(this->GetServiceClientName(), {}),
+            {{"rpc.method", request.GetServiceRequestName()}, {"rpc.service", this->GetServiceClientName()}});
     }
 
     if (httpOutcome.GetResult()->GetResponseBody().tellp() > 0)
     {
-        XmlDocument xmlDoc = XmlDocument::CreateFromXmlStream(httpOutcome.GetResult()->GetResponseBody());
+        return smithy::components::tracing::TracingUtils::MakeCallWithTiming<XmlOutcome>(
+            [&]() -> XmlOutcome {
+                XmlDocument xmlDoc = XmlDocument::CreateFromXmlStream(httpOutcome.GetResult()->GetResponseBody());
 
-        if (!xmlDoc.WasParseSuccessful())
-        {
-            AWS_LOGSTREAM_ERROR(AWS_XML_CLIENT_LOG_TAG, "Xml parsing for error failed with message " << xmlDoc.GetErrorMessage().c_str());
-            return AWSError<CoreErrors>(CoreErrors::UNKNOWN, "Xml Parse Error", xmlDoc.GetErrorMessage(), false);
-        }
+                if (!xmlDoc.WasParseSuccessful())
+                {
+                    AWS_LOGSTREAM_ERROR(AWS_XML_CLIENT_LOG_TAG, "Xml parsing for error failed with message " << xmlDoc.GetErrorMessage().c_str());
+                    return AWSError<CoreErrors>(CoreErrors::UNKNOWN, "Xml Parse Error", xmlDoc.GetErrorMessage(), false);
+                }
 
-        return XmlOutcome(AmazonWebServiceResult<XmlDocument>(std::move(xmlDoc),
-            httpOutcome.GetResult()->GetHeaders(), httpOutcome.GetResult()->GetResponseCode()));
+                return XmlOutcome(AmazonWebServiceResult<XmlDocument>(std::move(xmlDoc),
+                    httpOutcome.GetResult()->GetHeaders(), httpOutcome.GetResult()->GetResponseCode()));
+            },
+            "smithy.client.deserialization_duration",
+            m_telemetryProvider->getMeter(this->GetServiceClientName(), {}),
+            {{"rpc.method", request.GetServiceRequestName()}, {"rpc.service", this->GetServiceClientName()}});
     }
 
     return XmlOutcome(AmazonWebServiceResult<XmlDocument>(XmlDocument(), httpOutcome.GetResult()->GetHeaders()));
@@ -129,17 +141,35 @@ XmlOutcome AWSXMLClient::MakeRequest(const Aws::Http::URI& uri,
     HttpResponseOutcome httpOutcome(BASECLASS::AttemptExhaustively(uri, method, signerName, requestName, signerRegionOverride, signerServiceNameOverride));
     if (!httpOutcome.IsSuccess())
     {
-        return XmlOutcome(std::move(httpOutcome));
+        return smithy::components::tracing::TracingUtils::MakeCallWithTiming<XmlOutcome>(
+            [&]() -> XmlOutcome {
+                return XmlOutcome(std::move(httpOutcome));
+            },
+            "smithy.client.deserialization_duration",
+            m_telemetryProvider->getMeter(this->GetServiceClientName(), {}),
+            {{"rpc.method", requestName}, {"rpc.service", this->GetServiceClientName()}});
     }
 
     if (httpOutcome.GetResult()->GetResponseBody().tellp() > 0)
     {
-        return XmlOutcome(AmazonWebServiceResult<XmlDocument>(
-            XmlDocument::CreateFromXmlStream(httpOutcome.GetResult()->GetResponseBody()),
-            httpOutcome.GetResult()->GetHeaders(), httpOutcome.GetResult()->GetResponseCode()));
+        return smithy::components::tracing::TracingUtils::MakeCallWithTiming<XmlOutcome>(
+            [&]() -> XmlOutcome {
+                return XmlOutcome(AmazonWebServiceResult<XmlDocument>(
+                    XmlDocument::CreateFromXmlStream(httpOutcome.GetResult()->GetResponseBody()),
+                    httpOutcome.GetResult()->GetHeaders(), httpOutcome.GetResult()->GetResponseCode()));
+            },
+            "smithy.client.deserialization_duration",
+            m_telemetryProvider->getMeter(this->GetServiceClientName(), {}),
+            {{"rpc.method", requestName}, {"rpc.service", this->GetServiceClientName()}});
     }
 
-    return XmlOutcome(AmazonWebServiceResult<XmlDocument>(XmlDocument(), httpOutcome.GetResult()->GetHeaders()));
+    return smithy::components::tracing::TracingUtils::MakeCallWithTiming<XmlOutcome>(
+        [&]() -> XmlOutcome {
+            return XmlOutcome(AmazonWebServiceResult<XmlDocument>(XmlDocument(), httpOutcome.GetResult()->GetHeaders()));
+        },
+        "smithy.client.deserialization_duration",
+        m_telemetryProvider->getMeter(this->GetServiceClientName(), {}),
+        {{"rpc.method", requestName}, {"rpc.service", this->GetServiceClientName()}});
 }
 
 AWSError<CoreErrors> AWSXMLClient::BuildAWSError(const std::shared_ptr<Http::HttpResponse>& httpResponse) const
