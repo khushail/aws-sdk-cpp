@@ -10,6 +10,7 @@
 #include <aws/core/client/ClientConfiguration.h>
 #include <aws/core/client/CoreErrors.h>
 #include <aws/core/auth/AWSCredentialsProviderChain.h>
+#include <aws/core/platform/Environment.h>
 #include <aws/core/http/HttpTypes.h>
 #include <aws/core/utils/logging/LogMacros.h>
 #include <aws/core/utils/memory/AWSMemory.h>
@@ -166,7 +167,13 @@ protected:
     {
         // Create a client
         ClientConfiguration config;
-        config.endpointOverride = ENDPOINT_OVERRIDE;
+        config.endpointOverride = [&]() -> Aws::String {
+            auto envOverride = Aws::Environment::GetEnv("INTEG_TEST_ENDPOINT_OVERRIDE");
+            if (!envOverride.empty()) {
+                return envOverride;
+            }
+            return ENDPOINT_OVERRIDE;
+        }();
         config.scheme = Scheme::HTTPS;
         config.connectTimeoutMs = 30000;
         config.requestTimeoutMs = 30000;
