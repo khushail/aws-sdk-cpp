@@ -29,6 +29,9 @@
 #include <aws/lexv2-runtime/model/RecognizeUtteranceRequest.h>
 #include <aws/lexv2-runtime/model/StartConversationRequest.h>
 
+#include <smithy/tracing/TracingUtils.h>
+
+
 using namespace Aws;
 using namespace Aws::Auth;
 using namespace Aws::Client;
@@ -181,17 +184,27 @@ DeleteSessionOutcome LexRuntimeV2Client::DeleteSession(const DeleteSessionReques
     AWS_LOGSTREAM_ERROR("DeleteSession", "Required field: SessionId, is not set");
     return DeleteSessionOutcome(Aws::Client::AWSError<LexRuntimeV2Errors>(LexRuntimeV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [SessionId]", false));
   }
-  ResolveEndpointOutcome endpointResolutionOutcome = m_endpointProvider->ResolveEndpoint(request.GetEndpointContextParams());
-  AWS_OPERATION_CHECK_SUCCESS(endpointResolutionOutcome, DeleteSession, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE, endpointResolutionOutcome.GetError().GetMessage());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/bots/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotId());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/botAliases/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotAliasId());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/botLocales/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetLocaleId());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/sessions/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetSessionId());
-  return DeleteSessionOutcome(MakeRequest(request, endpointResolutionOutcome.GetResult(), Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER));
+  return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteSessionOutcome>(
+    [&]()-> DeleteSessionOutcome {
+      auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
+          [&]() -> ResolveEndpointOutcome { return m_endpointProvider->ResolveEndpoint(request.GetEndpointContextParams()); },
+          "smithy.client.resolve_endpoint_duration",
+          m_telemetryProvider->getMeter(this->GetServiceClientName(), {}),
+          {{"rpc.method", request.GetServiceRequestName()}, {"rpc.service", this->GetServiceClientName()}});
+      AWS_OPERATION_CHECK_SUCCESS(endpointResolutionOutcome, DeleteSession, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE, endpointResolutionOutcome.GetError().GetMessage());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/bots/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotId());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/botAliases/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotAliasId());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/botLocales/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetLocaleId());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/sessions/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetSessionId());
+      return DeleteSessionOutcome(MakeRequest(request, endpointResolutionOutcome.GetResult(), Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER));
+    },
+    "smithy.client.duration",
+    m_telemetryProvider->getMeter(this->GetServiceClientName(), {}),
+    {{"rpc.method", request.GetServiceRequestName()}, {"rpc.service", this->GetServiceClientName()}});
 }
 
 GetSessionOutcome LexRuntimeV2Client::GetSession(const GetSessionRequest& request) const
@@ -218,17 +231,27 @@ GetSessionOutcome LexRuntimeV2Client::GetSession(const GetSessionRequest& reques
     AWS_LOGSTREAM_ERROR("GetSession", "Required field: SessionId, is not set");
     return GetSessionOutcome(Aws::Client::AWSError<LexRuntimeV2Errors>(LexRuntimeV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [SessionId]", false));
   }
-  ResolveEndpointOutcome endpointResolutionOutcome = m_endpointProvider->ResolveEndpoint(request.GetEndpointContextParams());
-  AWS_OPERATION_CHECK_SUCCESS(endpointResolutionOutcome, GetSession, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE, endpointResolutionOutcome.GetError().GetMessage());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/bots/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotId());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/botAliases/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotAliasId());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/botLocales/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetLocaleId());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/sessions/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetSessionId());
-  return GetSessionOutcome(MakeRequest(request, endpointResolutionOutcome.GetResult(), Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER));
+  return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetSessionOutcome>(
+    [&]()-> GetSessionOutcome {
+      auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
+          [&]() -> ResolveEndpointOutcome { return m_endpointProvider->ResolveEndpoint(request.GetEndpointContextParams()); },
+          "smithy.client.resolve_endpoint_duration",
+          m_telemetryProvider->getMeter(this->GetServiceClientName(), {}),
+          {{"rpc.method", request.GetServiceRequestName()}, {"rpc.service", this->GetServiceClientName()}});
+      AWS_OPERATION_CHECK_SUCCESS(endpointResolutionOutcome, GetSession, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE, endpointResolutionOutcome.GetError().GetMessage());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/bots/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotId());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/botAliases/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotAliasId());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/botLocales/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetLocaleId());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/sessions/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetSessionId());
+      return GetSessionOutcome(MakeRequest(request, endpointResolutionOutcome.GetResult(), Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER));
+    },
+    "smithy.client.duration",
+    m_telemetryProvider->getMeter(this->GetServiceClientName(), {}),
+    {{"rpc.method", request.GetServiceRequestName()}, {"rpc.service", this->GetServiceClientName()}});
 }
 
 PutSessionOutcome LexRuntimeV2Client::PutSession(const PutSessionRequest& request) const
@@ -255,17 +278,27 @@ PutSessionOutcome LexRuntimeV2Client::PutSession(const PutSessionRequest& reques
     AWS_LOGSTREAM_ERROR("PutSession", "Required field: SessionId, is not set");
     return PutSessionOutcome(Aws::Client::AWSError<LexRuntimeV2Errors>(LexRuntimeV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [SessionId]", false));
   }
-  ResolveEndpointOutcome endpointResolutionOutcome = m_endpointProvider->ResolveEndpoint(request.GetEndpointContextParams());
-  AWS_OPERATION_CHECK_SUCCESS(endpointResolutionOutcome, PutSession, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE, endpointResolutionOutcome.GetError().GetMessage());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/bots/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotId());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/botAliases/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotAliasId());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/botLocales/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetLocaleId());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/sessions/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetSessionId());
-  return PutSessionOutcome(MakeRequestWithUnparsedResponse(request, endpointResolutionOutcome.GetResult(), Aws::Http::HttpMethod::HTTP_POST));
+  return smithy::components::tracing::TracingUtils::MakeCallWithTiming<PutSessionOutcome>(
+    [&]()-> PutSessionOutcome {
+      auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
+          [&]() -> ResolveEndpointOutcome { return m_endpointProvider->ResolveEndpoint(request.GetEndpointContextParams()); },
+          "smithy.client.resolve_endpoint_duration",
+          m_telemetryProvider->getMeter(this->GetServiceClientName(), {}),
+          {{"rpc.method", request.GetServiceRequestName()}, {"rpc.service", this->GetServiceClientName()}});
+      AWS_OPERATION_CHECK_SUCCESS(endpointResolutionOutcome, PutSession, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE, endpointResolutionOutcome.GetError().GetMessage());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/bots/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotId());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/botAliases/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotAliasId());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/botLocales/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetLocaleId());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/sessions/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetSessionId());
+      return PutSessionOutcome(MakeRequestWithUnparsedResponse(request, endpointResolutionOutcome.GetResult(), Aws::Http::HttpMethod::HTTP_POST));
+    },
+    "smithy.client.duration",
+    m_telemetryProvider->getMeter(this->GetServiceClientName(), {}),
+    {{"rpc.method", request.GetServiceRequestName()}, {"rpc.service", this->GetServiceClientName()}});
 }
 
 RecognizeTextOutcome LexRuntimeV2Client::RecognizeText(const RecognizeTextRequest& request) const
@@ -292,18 +325,28 @@ RecognizeTextOutcome LexRuntimeV2Client::RecognizeText(const RecognizeTextReques
     AWS_LOGSTREAM_ERROR("RecognizeText", "Required field: SessionId, is not set");
     return RecognizeTextOutcome(Aws::Client::AWSError<LexRuntimeV2Errors>(LexRuntimeV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [SessionId]", false));
   }
-  ResolveEndpointOutcome endpointResolutionOutcome = m_endpointProvider->ResolveEndpoint(request.GetEndpointContextParams());
-  AWS_OPERATION_CHECK_SUCCESS(endpointResolutionOutcome, RecognizeText, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE, endpointResolutionOutcome.GetError().GetMessage());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/bots/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotId());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/botAliases/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotAliasId());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/botLocales/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetLocaleId());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/sessions/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetSessionId());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/text");
-  return RecognizeTextOutcome(MakeRequest(request, endpointResolutionOutcome.GetResult(), Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER));
+  return smithy::components::tracing::TracingUtils::MakeCallWithTiming<RecognizeTextOutcome>(
+    [&]()-> RecognizeTextOutcome {
+      auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
+          [&]() -> ResolveEndpointOutcome { return m_endpointProvider->ResolveEndpoint(request.GetEndpointContextParams()); },
+          "smithy.client.resolve_endpoint_duration",
+          m_telemetryProvider->getMeter(this->GetServiceClientName(), {}),
+          {{"rpc.method", request.GetServiceRequestName()}, {"rpc.service", this->GetServiceClientName()}});
+      AWS_OPERATION_CHECK_SUCCESS(endpointResolutionOutcome, RecognizeText, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE, endpointResolutionOutcome.GetError().GetMessage());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/bots/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotId());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/botAliases/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotAliasId());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/botLocales/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetLocaleId());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/sessions/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetSessionId());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/text");
+      return RecognizeTextOutcome(MakeRequest(request, endpointResolutionOutcome.GetResult(), Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER));
+    },
+    "smithy.client.duration",
+    m_telemetryProvider->getMeter(this->GetServiceClientName(), {}),
+    {{"rpc.method", request.GetServiceRequestName()}, {"rpc.service", this->GetServiceClientName()}});
 }
 
 RecognizeUtteranceOutcome LexRuntimeV2Client::RecognizeUtterance(const RecognizeUtteranceRequest& request) const
@@ -335,18 +378,28 @@ RecognizeUtteranceOutcome LexRuntimeV2Client::RecognizeUtterance(const Recognize
     AWS_LOGSTREAM_ERROR("RecognizeUtterance", "Required field: RequestContentType, is not set");
     return RecognizeUtteranceOutcome(Aws::Client::AWSError<LexRuntimeV2Errors>(LexRuntimeV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [RequestContentType]", false));
   }
-  ResolveEndpointOutcome endpointResolutionOutcome = m_endpointProvider->ResolveEndpoint(request.GetEndpointContextParams());
-  AWS_OPERATION_CHECK_SUCCESS(endpointResolutionOutcome, RecognizeUtterance, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE, endpointResolutionOutcome.GetError().GetMessage());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/bots/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotId());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/botAliases/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotAliasId());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/botLocales/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetLocaleId());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/sessions/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetSessionId());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/utterance");
-  return RecognizeUtteranceOutcome(MakeRequestWithUnparsedResponse(request, endpointResolutionOutcome.GetResult(), Aws::Http::HttpMethod::HTTP_POST));
+  return smithy::components::tracing::TracingUtils::MakeCallWithTiming<RecognizeUtteranceOutcome>(
+    [&]()-> RecognizeUtteranceOutcome {
+      auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
+          [&]() -> ResolveEndpointOutcome { return m_endpointProvider->ResolveEndpoint(request.GetEndpointContextParams()); },
+          "smithy.client.resolve_endpoint_duration",
+          m_telemetryProvider->getMeter(this->GetServiceClientName(), {}),
+          {{"rpc.method", request.GetServiceRequestName()}, {"rpc.service", this->GetServiceClientName()}});
+      AWS_OPERATION_CHECK_SUCCESS(endpointResolutionOutcome, RecognizeUtterance, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE, endpointResolutionOutcome.GetError().GetMessage());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/bots/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotId());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/botAliases/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotAliasId());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/botLocales/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetLocaleId());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/sessions/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetSessionId());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/utterance");
+      return RecognizeUtteranceOutcome(MakeRequestWithUnparsedResponse(request, endpointResolutionOutcome.GetResult(), Aws::Http::HttpMethod::HTTP_POST));
+    },
+    "smithy.client.duration",
+    m_telemetryProvider->getMeter(this->GetServiceClientName(), {}),
+    {{"rpc.method", request.GetServiceRequestName()}, {"rpc.service", this->GetServiceClientName()}});
 }
 
 void LexRuntimeV2Client::StartConversationAsync(Model::StartConversationRequest& request,
@@ -382,21 +435,25 @@ void LexRuntimeV2Client::StartConversationAsync(Model::StartConversationRequest&
     handler(this, request, StartConversationOutcome(Aws::Client::AWSError<LexRuntimeV2Errors>(LexRuntimeV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [SessionId]", false)), handlerContext);
     return;
   }
-  ResolveEndpointOutcome endpointResolutionOutcome = m_endpointProvider->ResolveEndpoint(request.GetEndpointContextParams());
-  if (!endpointResolutionOutcome.IsSuccess()) {
-    handler(this, request, StartConversationOutcome(Aws::Client::AWSError<CoreErrors>(
-        CoreErrors::ENDPOINT_RESOLUTION_FAILURE, "ENDPOINT_RESOLUTION_FAILURE", endpointResolutionOutcome.GetError().GetMessage(), false)), handlerContext);
-    return;
-  }
-  endpointResolutionOutcome.GetResult().AddPathSegments("/bots/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotId());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/botAliases/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotAliasId());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/botLocales/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetLocaleId());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/sessions/");
-  endpointResolutionOutcome.GetResult().AddPathSegment(request.GetSessionId());
-  endpointResolutionOutcome.GetResult().AddPathSegments("/conversation");
+      auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
+          [&]() -> ResolveEndpointOutcome { return m_endpointProvider->ResolveEndpoint(request.GetEndpointContextParams()); },
+          "smithy.client.resolve_endpoint_duration",
+          m_telemetryProvider->getMeter(this->GetServiceClientName(), {}),
+          {{"rpc.method", request.GetServiceRequestName()}, {"rpc.service", this->GetServiceClientName()}});
+      if (!endpointResolutionOutcome.IsSuccess()) {
+          handler(this, request, StartConversationOutcome(Aws::Client::AWSError<CoreErrors>(
+              CoreErrors::ENDPOINT_RESOLUTION_FAILURE, "ENDPOINT_RESOLUTION_FAILURE", endpointResolutionOutcome.GetError().GetMessage(), false)), handlerContext);
+          return;
+      }
+      endpointResolutionOutcome.GetResult().AddPathSegments("/bots/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotId());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/botAliases/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetBotAliasId());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/botLocales/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetLocaleId());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/sessions/");
+      endpointResolutionOutcome.GetResult().AddPathSegment(request.GetSessionId());
+      endpointResolutionOutcome.GetResult().AddPathSegments("/conversation");
   request.SetResponseStreamFactory(
       [&] { request.GetEventStreamDecoder().Reset(); return Aws::New<Aws::Utils::Event::EventDecoderStream>(ALLOCATION_TAG, request.GetEventStreamDecoder()); }
   );

@@ -22,6 +22,9 @@
 #include <aws/worklink/WorkLinkErrorMarshaller.h>
 #include <aws/worklink/WorkLinkEndpointProvider.h>
 
+#include <smithy/tracing/TracingUtils.h>
+
+
 using namespace Aws;
 using namespace Aws::Auth;
 using namespace Aws::Client;
