@@ -224,6 +224,10 @@ AcceptSharedDirectoryOutcome DirectoryServiceClient::AcceptSharedDirectory(const
 {
   AWS_OPERATION_GUARD(AcceptSharedDirectory);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AcceptSharedDirectory, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AcceptSharedDirectory",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AcceptSharedDirectoryOutcome>(
     [&]()-> AcceptSharedDirectoryOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -243,6 +247,10 @@ AddIpRoutesOutcome DirectoryServiceClient::AddIpRoutes(const AddIpRoutesRequest&
 {
   AWS_OPERATION_GUARD(AddIpRoutes);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AddIpRoutes, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AddIpRoutes",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AddIpRoutesOutcome>(
     [&]()-> AddIpRoutesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -262,6 +270,10 @@ AddRegionOutcome DirectoryServiceClient::AddRegion(const AddRegionRequest& reque
 {
   AWS_OPERATION_GUARD(AddRegion);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AddRegion, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AddRegion",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AddRegionOutcome>(
     [&]()-> AddRegionOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -281,6 +293,10 @@ AddTagsToResourceOutcome DirectoryServiceClient::AddTagsToResource(const AddTags
 {
   AWS_OPERATION_GUARD(AddTagsToResource);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AddTagsToResource, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AddTagsToResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AddTagsToResourceOutcome>(
     [&]()-> AddTagsToResourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -300,6 +316,10 @@ CancelSchemaExtensionOutcome DirectoryServiceClient::CancelSchemaExtension(const
 {
   AWS_OPERATION_GUARD(CancelSchemaExtension);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CancelSchemaExtension, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CancelSchemaExtension",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CancelSchemaExtensionOutcome>(
     [&]()-> CancelSchemaExtensionOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -319,6 +339,10 @@ ConnectDirectoryOutcome DirectoryServiceClient::ConnectDirectory(const ConnectDi
 {
   AWS_OPERATION_GUARD(ConnectDirectory);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ConnectDirectory, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ConnectDirectory",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ConnectDirectoryOutcome>(
     [&]()-> ConnectDirectoryOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -338,6 +362,10 @@ CreateAliasOutcome DirectoryServiceClient::CreateAlias(const CreateAliasRequest&
 {
   AWS_OPERATION_GUARD(CreateAlias);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateAlias, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateAlias",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateAliasOutcome>(
     [&]()-> CreateAliasOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -357,6 +385,10 @@ CreateComputerOutcome DirectoryServiceClient::CreateComputer(const CreateCompute
 {
   AWS_OPERATION_GUARD(CreateComputer);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateComputer, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateComputer",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateComputerOutcome>(
     [&]()-> CreateComputerOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -376,6 +408,10 @@ CreateConditionalForwarderOutcome DirectoryServiceClient::CreateConditionalForwa
 {
   AWS_OPERATION_GUARD(CreateConditionalForwarder);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateConditionalForwarder, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateConditionalForwarder",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateConditionalForwarderOutcome>(
     [&]()-> CreateConditionalForwarderOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -395,6 +431,10 @@ CreateDirectoryOutcome DirectoryServiceClient::CreateDirectory(const CreateDirec
 {
   AWS_OPERATION_GUARD(CreateDirectory);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateDirectory, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateDirectory",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateDirectoryOutcome>(
     [&]()-> CreateDirectoryOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -414,6 +454,10 @@ CreateLogSubscriptionOutcome DirectoryServiceClient::CreateLogSubscription(const
 {
   AWS_OPERATION_GUARD(CreateLogSubscription);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateLogSubscription, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateLogSubscription",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateLogSubscriptionOutcome>(
     [&]()-> CreateLogSubscriptionOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -433,6 +477,10 @@ CreateMicrosoftADOutcome DirectoryServiceClient::CreateMicrosoftAD(const CreateM
 {
   AWS_OPERATION_GUARD(CreateMicrosoftAD);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateMicrosoftAD, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateMicrosoftAD",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateMicrosoftADOutcome>(
     [&]()-> CreateMicrosoftADOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -452,6 +500,10 @@ CreateSnapshotOutcome DirectoryServiceClient::CreateSnapshot(const CreateSnapsho
 {
   AWS_OPERATION_GUARD(CreateSnapshot);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateSnapshot, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateSnapshot",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateSnapshotOutcome>(
     [&]()-> CreateSnapshotOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -471,6 +523,10 @@ CreateTrustOutcome DirectoryServiceClient::CreateTrust(const CreateTrustRequest&
 {
   AWS_OPERATION_GUARD(CreateTrust);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateTrust, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateTrust",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateTrustOutcome>(
     [&]()-> CreateTrustOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -490,6 +546,10 @@ DeleteConditionalForwarderOutcome DirectoryServiceClient::DeleteConditionalForwa
 {
   AWS_OPERATION_GUARD(DeleteConditionalForwarder);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteConditionalForwarder, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteConditionalForwarder",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteConditionalForwarderOutcome>(
     [&]()-> DeleteConditionalForwarderOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -509,6 +569,10 @@ DeleteDirectoryOutcome DirectoryServiceClient::DeleteDirectory(const DeleteDirec
 {
   AWS_OPERATION_GUARD(DeleteDirectory);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteDirectory, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteDirectory",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteDirectoryOutcome>(
     [&]()-> DeleteDirectoryOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -528,6 +592,10 @@ DeleteLogSubscriptionOutcome DirectoryServiceClient::DeleteLogSubscription(const
 {
   AWS_OPERATION_GUARD(DeleteLogSubscription);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteLogSubscription, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteLogSubscription",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteLogSubscriptionOutcome>(
     [&]()-> DeleteLogSubscriptionOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -547,6 +615,10 @@ DeleteSnapshotOutcome DirectoryServiceClient::DeleteSnapshot(const DeleteSnapsho
 {
   AWS_OPERATION_GUARD(DeleteSnapshot);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteSnapshot, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteSnapshot",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteSnapshotOutcome>(
     [&]()-> DeleteSnapshotOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -566,6 +638,10 @@ DeleteTrustOutcome DirectoryServiceClient::DeleteTrust(const DeleteTrustRequest&
 {
   AWS_OPERATION_GUARD(DeleteTrust);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteTrust, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteTrust",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteTrustOutcome>(
     [&]()-> DeleteTrustOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -585,6 +661,10 @@ DeregisterCertificateOutcome DirectoryServiceClient::DeregisterCertificate(const
 {
   AWS_OPERATION_GUARD(DeregisterCertificate);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeregisterCertificate, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeregisterCertificate",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeregisterCertificateOutcome>(
     [&]()-> DeregisterCertificateOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -604,6 +684,10 @@ DeregisterEventTopicOutcome DirectoryServiceClient::DeregisterEventTopic(const D
 {
   AWS_OPERATION_GUARD(DeregisterEventTopic);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeregisterEventTopic, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeregisterEventTopic",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeregisterEventTopicOutcome>(
     [&]()-> DeregisterEventTopicOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -623,6 +707,10 @@ DescribeCertificateOutcome DirectoryServiceClient::DescribeCertificate(const Des
 {
   AWS_OPERATION_GUARD(DescribeCertificate);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeCertificate, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeCertificate",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeCertificateOutcome>(
     [&]()-> DescribeCertificateOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -642,6 +730,10 @@ DescribeClientAuthenticationSettingsOutcome DirectoryServiceClient::DescribeClie
 {
   AWS_OPERATION_GUARD(DescribeClientAuthenticationSettings);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeClientAuthenticationSettings, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeClientAuthenticationSettings",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeClientAuthenticationSettingsOutcome>(
     [&]()-> DescribeClientAuthenticationSettingsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -661,6 +753,10 @@ DescribeConditionalForwardersOutcome DirectoryServiceClient::DescribeConditional
 {
   AWS_OPERATION_GUARD(DescribeConditionalForwarders);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeConditionalForwarders, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeConditionalForwarders",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeConditionalForwardersOutcome>(
     [&]()-> DescribeConditionalForwardersOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -680,6 +776,10 @@ DescribeDirectoriesOutcome DirectoryServiceClient::DescribeDirectories(const Des
 {
   AWS_OPERATION_GUARD(DescribeDirectories);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeDirectories, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeDirectories",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeDirectoriesOutcome>(
     [&]()-> DescribeDirectoriesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -699,6 +799,10 @@ DescribeDomainControllersOutcome DirectoryServiceClient::DescribeDomainControlle
 {
   AWS_OPERATION_GUARD(DescribeDomainControllers);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeDomainControllers, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeDomainControllers",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeDomainControllersOutcome>(
     [&]()-> DescribeDomainControllersOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -718,6 +822,10 @@ DescribeEventTopicsOutcome DirectoryServiceClient::DescribeEventTopics(const Des
 {
   AWS_OPERATION_GUARD(DescribeEventTopics);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeEventTopics, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeEventTopics",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeEventTopicsOutcome>(
     [&]()-> DescribeEventTopicsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -737,6 +845,10 @@ DescribeLDAPSSettingsOutcome DirectoryServiceClient::DescribeLDAPSSettings(const
 {
   AWS_OPERATION_GUARD(DescribeLDAPSSettings);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeLDAPSSettings, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeLDAPSSettings",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeLDAPSSettingsOutcome>(
     [&]()-> DescribeLDAPSSettingsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -756,6 +868,10 @@ DescribeRegionsOutcome DirectoryServiceClient::DescribeRegions(const DescribeReg
 {
   AWS_OPERATION_GUARD(DescribeRegions);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeRegions, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeRegions",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeRegionsOutcome>(
     [&]()-> DescribeRegionsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -775,6 +891,10 @@ DescribeSettingsOutcome DirectoryServiceClient::DescribeSettings(const DescribeS
 {
   AWS_OPERATION_GUARD(DescribeSettings);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeSettings, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeSettings",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeSettingsOutcome>(
     [&]()-> DescribeSettingsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -794,6 +914,10 @@ DescribeSharedDirectoriesOutcome DirectoryServiceClient::DescribeSharedDirectori
 {
   AWS_OPERATION_GUARD(DescribeSharedDirectories);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeSharedDirectories, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeSharedDirectories",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeSharedDirectoriesOutcome>(
     [&]()-> DescribeSharedDirectoriesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -813,6 +937,10 @@ DescribeSnapshotsOutcome DirectoryServiceClient::DescribeSnapshots(const Describ
 {
   AWS_OPERATION_GUARD(DescribeSnapshots);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeSnapshots, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeSnapshots",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeSnapshotsOutcome>(
     [&]()-> DescribeSnapshotsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -832,6 +960,10 @@ DescribeTrustsOutcome DirectoryServiceClient::DescribeTrusts(const DescribeTrust
 {
   AWS_OPERATION_GUARD(DescribeTrusts);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeTrusts, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeTrusts",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeTrustsOutcome>(
     [&]()-> DescribeTrustsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -851,6 +983,10 @@ DescribeUpdateDirectoryOutcome DirectoryServiceClient::DescribeUpdateDirectory(c
 {
   AWS_OPERATION_GUARD(DescribeUpdateDirectory);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeUpdateDirectory, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeUpdateDirectory",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeUpdateDirectoryOutcome>(
     [&]()-> DescribeUpdateDirectoryOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -870,6 +1006,10 @@ DisableClientAuthenticationOutcome DirectoryServiceClient::DisableClientAuthenti
 {
   AWS_OPERATION_GUARD(DisableClientAuthentication);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DisableClientAuthentication, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DisableClientAuthentication",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DisableClientAuthenticationOutcome>(
     [&]()-> DisableClientAuthenticationOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -889,6 +1029,10 @@ DisableLDAPSOutcome DirectoryServiceClient::DisableLDAPS(const DisableLDAPSReque
 {
   AWS_OPERATION_GUARD(DisableLDAPS);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DisableLDAPS, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DisableLDAPS",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DisableLDAPSOutcome>(
     [&]()-> DisableLDAPSOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -908,6 +1052,10 @@ DisableRadiusOutcome DirectoryServiceClient::DisableRadius(const DisableRadiusRe
 {
   AWS_OPERATION_GUARD(DisableRadius);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DisableRadius, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DisableRadius",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DisableRadiusOutcome>(
     [&]()-> DisableRadiusOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -927,6 +1075,10 @@ DisableSsoOutcome DirectoryServiceClient::DisableSso(const DisableSsoRequest& re
 {
   AWS_OPERATION_GUARD(DisableSso);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DisableSso, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DisableSso",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DisableSsoOutcome>(
     [&]()-> DisableSsoOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -946,6 +1098,10 @@ EnableClientAuthenticationOutcome DirectoryServiceClient::EnableClientAuthentica
 {
   AWS_OPERATION_GUARD(EnableClientAuthentication);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, EnableClientAuthentication, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".EnableClientAuthentication",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<EnableClientAuthenticationOutcome>(
     [&]()-> EnableClientAuthenticationOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -965,6 +1121,10 @@ EnableLDAPSOutcome DirectoryServiceClient::EnableLDAPS(const EnableLDAPSRequest&
 {
   AWS_OPERATION_GUARD(EnableLDAPS);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, EnableLDAPS, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".EnableLDAPS",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<EnableLDAPSOutcome>(
     [&]()-> EnableLDAPSOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -984,6 +1144,10 @@ EnableRadiusOutcome DirectoryServiceClient::EnableRadius(const EnableRadiusReque
 {
   AWS_OPERATION_GUARD(EnableRadius);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, EnableRadius, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".EnableRadius",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<EnableRadiusOutcome>(
     [&]()-> EnableRadiusOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1003,6 +1167,10 @@ EnableSsoOutcome DirectoryServiceClient::EnableSso(const EnableSsoRequest& reque
 {
   AWS_OPERATION_GUARD(EnableSso);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, EnableSso, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".EnableSso",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<EnableSsoOutcome>(
     [&]()-> EnableSsoOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1022,6 +1190,10 @@ GetDirectoryLimitsOutcome DirectoryServiceClient::GetDirectoryLimits(const GetDi
 {
   AWS_OPERATION_GUARD(GetDirectoryLimits);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetDirectoryLimits, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetDirectoryLimits",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetDirectoryLimitsOutcome>(
     [&]()-> GetDirectoryLimitsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1041,6 +1213,10 @@ GetSnapshotLimitsOutcome DirectoryServiceClient::GetSnapshotLimits(const GetSnap
 {
   AWS_OPERATION_GUARD(GetSnapshotLimits);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetSnapshotLimits, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetSnapshotLimits",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetSnapshotLimitsOutcome>(
     [&]()-> GetSnapshotLimitsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1060,6 +1236,10 @@ ListCertificatesOutcome DirectoryServiceClient::ListCertificates(const ListCerti
 {
   AWS_OPERATION_GUARD(ListCertificates);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListCertificates, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListCertificates",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListCertificatesOutcome>(
     [&]()-> ListCertificatesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1079,6 +1259,10 @@ ListIpRoutesOutcome DirectoryServiceClient::ListIpRoutes(const ListIpRoutesReque
 {
   AWS_OPERATION_GUARD(ListIpRoutes);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListIpRoutes, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListIpRoutes",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListIpRoutesOutcome>(
     [&]()-> ListIpRoutesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1098,6 +1282,10 @@ ListLogSubscriptionsOutcome DirectoryServiceClient::ListLogSubscriptions(const L
 {
   AWS_OPERATION_GUARD(ListLogSubscriptions);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListLogSubscriptions, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListLogSubscriptions",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListLogSubscriptionsOutcome>(
     [&]()-> ListLogSubscriptionsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1117,6 +1305,10 @@ ListSchemaExtensionsOutcome DirectoryServiceClient::ListSchemaExtensions(const L
 {
   AWS_OPERATION_GUARD(ListSchemaExtensions);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListSchemaExtensions, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListSchemaExtensions",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListSchemaExtensionsOutcome>(
     [&]()-> ListSchemaExtensionsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1136,6 +1328,10 @@ ListTagsForResourceOutcome DirectoryServiceClient::ListTagsForResource(const Lis
 {
   AWS_OPERATION_GUARD(ListTagsForResource);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListTagsForResource, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListTagsForResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListTagsForResourceOutcome>(
     [&]()-> ListTagsForResourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1155,6 +1351,10 @@ RegisterCertificateOutcome DirectoryServiceClient::RegisterCertificate(const Reg
 {
   AWS_OPERATION_GUARD(RegisterCertificate);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, RegisterCertificate, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".RegisterCertificate",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<RegisterCertificateOutcome>(
     [&]()-> RegisterCertificateOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1174,6 +1374,10 @@ RegisterEventTopicOutcome DirectoryServiceClient::RegisterEventTopic(const Regis
 {
   AWS_OPERATION_GUARD(RegisterEventTopic);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, RegisterEventTopic, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".RegisterEventTopic",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<RegisterEventTopicOutcome>(
     [&]()-> RegisterEventTopicOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1193,6 +1397,10 @@ RejectSharedDirectoryOutcome DirectoryServiceClient::RejectSharedDirectory(const
 {
   AWS_OPERATION_GUARD(RejectSharedDirectory);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, RejectSharedDirectory, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".RejectSharedDirectory",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<RejectSharedDirectoryOutcome>(
     [&]()-> RejectSharedDirectoryOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1212,6 +1420,10 @@ RemoveIpRoutesOutcome DirectoryServiceClient::RemoveIpRoutes(const RemoveIpRoute
 {
   AWS_OPERATION_GUARD(RemoveIpRoutes);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, RemoveIpRoutes, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".RemoveIpRoutes",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<RemoveIpRoutesOutcome>(
     [&]()-> RemoveIpRoutesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1231,6 +1443,10 @@ RemoveRegionOutcome DirectoryServiceClient::RemoveRegion(const RemoveRegionReque
 {
   AWS_OPERATION_GUARD(RemoveRegion);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, RemoveRegion, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".RemoveRegion",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<RemoveRegionOutcome>(
     [&]()-> RemoveRegionOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1250,6 +1466,10 @@ RemoveTagsFromResourceOutcome DirectoryServiceClient::RemoveTagsFromResource(con
 {
   AWS_OPERATION_GUARD(RemoveTagsFromResource);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, RemoveTagsFromResource, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".RemoveTagsFromResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<RemoveTagsFromResourceOutcome>(
     [&]()-> RemoveTagsFromResourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1269,6 +1489,10 @@ ResetUserPasswordOutcome DirectoryServiceClient::ResetUserPassword(const ResetUs
 {
   AWS_OPERATION_GUARD(ResetUserPassword);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ResetUserPassword, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ResetUserPassword",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResetUserPasswordOutcome>(
     [&]()-> ResetUserPasswordOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1288,6 +1512,10 @@ RestoreFromSnapshotOutcome DirectoryServiceClient::RestoreFromSnapshot(const Res
 {
   AWS_OPERATION_GUARD(RestoreFromSnapshot);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, RestoreFromSnapshot, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".RestoreFromSnapshot",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<RestoreFromSnapshotOutcome>(
     [&]()-> RestoreFromSnapshotOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1307,6 +1535,10 @@ ShareDirectoryOutcome DirectoryServiceClient::ShareDirectory(const ShareDirector
 {
   AWS_OPERATION_GUARD(ShareDirectory);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ShareDirectory, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ShareDirectory",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ShareDirectoryOutcome>(
     [&]()-> ShareDirectoryOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1326,6 +1558,10 @@ StartSchemaExtensionOutcome DirectoryServiceClient::StartSchemaExtension(const S
 {
   AWS_OPERATION_GUARD(StartSchemaExtension);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, StartSchemaExtension, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".StartSchemaExtension",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<StartSchemaExtensionOutcome>(
     [&]()-> StartSchemaExtensionOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1345,6 +1581,10 @@ UnshareDirectoryOutcome DirectoryServiceClient::UnshareDirectory(const UnshareDi
 {
   AWS_OPERATION_GUARD(UnshareDirectory);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UnshareDirectory, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UnshareDirectory",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UnshareDirectoryOutcome>(
     [&]()-> UnshareDirectoryOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1364,6 +1604,10 @@ UpdateConditionalForwarderOutcome DirectoryServiceClient::UpdateConditionalForwa
 {
   AWS_OPERATION_GUARD(UpdateConditionalForwarder);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateConditionalForwarder, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateConditionalForwarder",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateConditionalForwarderOutcome>(
     [&]()-> UpdateConditionalForwarderOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1383,6 +1627,10 @@ UpdateDirectorySetupOutcome DirectoryServiceClient::UpdateDirectorySetup(const U
 {
   AWS_OPERATION_GUARD(UpdateDirectorySetup);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateDirectorySetup, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateDirectorySetup",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateDirectorySetupOutcome>(
     [&]()-> UpdateDirectorySetupOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1402,6 +1650,10 @@ UpdateNumberOfDomainControllersOutcome DirectoryServiceClient::UpdateNumberOfDom
 {
   AWS_OPERATION_GUARD(UpdateNumberOfDomainControllers);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateNumberOfDomainControllers, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateNumberOfDomainControllers",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateNumberOfDomainControllersOutcome>(
     [&]()-> UpdateNumberOfDomainControllersOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1421,6 +1673,10 @@ UpdateRadiusOutcome DirectoryServiceClient::UpdateRadius(const UpdateRadiusReque
 {
   AWS_OPERATION_GUARD(UpdateRadius);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateRadius, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateRadius",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateRadiusOutcome>(
     [&]()-> UpdateRadiusOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1440,6 +1696,10 @@ UpdateSettingsOutcome DirectoryServiceClient::UpdateSettings(const UpdateSetting
 {
   AWS_OPERATION_GUARD(UpdateSettings);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateSettings, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateSettings",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateSettingsOutcome>(
     [&]()-> UpdateSettingsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1459,6 +1719,10 @@ UpdateTrustOutcome DirectoryServiceClient::UpdateTrust(const UpdateTrustRequest&
 {
   AWS_OPERATION_GUARD(UpdateTrust);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateTrust, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateTrust",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateTrustOutcome>(
     [&]()-> UpdateTrustOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1478,6 +1742,10 @@ VerifyTrustOutcome DirectoryServiceClient::VerifyTrust(const VerifyTrustRequest&
 {
   AWS_OPERATION_GUARD(VerifyTrust);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, VerifyTrust, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".VerifyTrust",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<VerifyTrustOutcome>(
     [&]()-> VerifyTrustOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(

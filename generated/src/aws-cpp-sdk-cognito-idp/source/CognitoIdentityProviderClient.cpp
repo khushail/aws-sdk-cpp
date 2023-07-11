@@ -258,6 +258,10 @@ AddCustomAttributesOutcome CognitoIdentityProviderClient::AddCustomAttributes(co
 {
   AWS_OPERATION_GUARD(AddCustomAttributes);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AddCustomAttributes, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AddCustomAttributes",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AddCustomAttributesOutcome>(
     [&]()-> AddCustomAttributesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -277,6 +281,10 @@ AdminAddUserToGroupOutcome CognitoIdentityProviderClient::AdminAddUserToGroup(co
 {
   AWS_OPERATION_GUARD(AdminAddUserToGroup);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminAddUserToGroup, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminAddUserToGroup",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminAddUserToGroupOutcome>(
     [&]()-> AdminAddUserToGroupOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -296,6 +304,10 @@ AdminConfirmSignUpOutcome CognitoIdentityProviderClient::AdminConfirmSignUp(cons
 {
   AWS_OPERATION_GUARD(AdminConfirmSignUp);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminConfirmSignUp, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminConfirmSignUp",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminConfirmSignUpOutcome>(
     [&]()-> AdminConfirmSignUpOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -315,6 +327,10 @@ AdminCreateUserOutcome CognitoIdentityProviderClient::AdminCreateUser(const Admi
 {
   AWS_OPERATION_GUARD(AdminCreateUser);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminCreateUser, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminCreateUser",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminCreateUserOutcome>(
     [&]()-> AdminCreateUserOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -334,6 +350,10 @@ AdminDeleteUserOutcome CognitoIdentityProviderClient::AdminDeleteUser(const Admi
 {
   AWS_OPERATION_GUARD(AdminDeleteUser);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminDeleteUser, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminDeleteUser",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminDeleteUserOutcome>(
     [&]()-> AdminDeleteUserOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -353,6 +373,10 @@ AdminDeleteUserAttributesOutcome CognitoIdentityProviderClient::AdminDeleteUserA
 {
   AWS_OPERATION_GUARD(AdminDeleteUserAttributes);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminDeleteUserAttributes, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminDeleteUserAttributes",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminDeleteUserAttributesOutcome>(
     [&]()-> AdminDeleteUserAttributesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -372,6 +396,10 @@ AdminDisableProviderForUserOutcome CognitoIdentityProviderClient::AdminDisablePr
 {
   AWS_OPERATION_GUARD(AdminDisableProviderForUser);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminDisableProviderForUser, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminDisableProviderForUser",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminDisableProviderForUserOutcome>(
     [&]()-> AdminDisableProviderForUserOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -391,6 +419,10 @@ AdminDisableUserOutcome CognitoIdentityProviderClient::AdminDisableUser(const Ad
 {
   AWS_OPERATION_GUARD(AdminDisableUser);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminDisableUser, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminDisableUser",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminDisableUserOutcome>(
     [&]()-> AdminDisableUserOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -410,6 +442,10 @@ AdminEnableUserOutcome CognitoIdentityProviderClient::AdminEnableUser(const Admi
 {
   AWS_OPERATION_GUARD(AdminEnableUser);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminEnableUser, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminEnableUser",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminEnableUserOutcome>(
     [&]()-> AdminEnableUserOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -429,6 +465,10 @@ AdminForgetDeviceOutcome CognitoIdentityProviderClient::AdminForgetDevice(const 
 {
   AWS_OPERATION_GUARD(AdminForgetDevice);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminForgetDevice, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminForgetDevice",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminForgetDeviceOutcome>(
     [&]()-> AdminForgetDeviceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -448,6 +488,10 @@ AdminGetDeviceOutcome CognitoIdentityProviderClient::AdminGetDevice(const AdminG
 {
   AWS_OPERATION_GUARD(AdminGetDevice);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminGetDevice, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminGetDevice",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminGetDeviceOutcome>(
     [&]()-> AdminGetDeviceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -467,6 +511,10 @@ AdminGetUserOutcome CognitoIdentityProviderClient::AdminGetUser(const AdminGetUs
 {
   AWS_OPERATION_GUARD(AdminGetUser);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminGetUser, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminGetUser",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminGetUserOutcome>(
     [&]()-> AdminGetUserOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -486,6 +534,10 @@ AdminInitiateAuthOutcome CognitoIdentityProviderClient::AdminInitiateAuth(const 
 {
   AWS_OPERATION_GUARD(AdminInitiateAuth);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminInitiateAuth, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminInitiateAuth",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminInitiateAuthOutcome>(
     [&]()-> AdminInitiateAuthOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -505,6 +557,10 @@ AdminLinkProviderForUserOutcome CognitoIdentityProviderClient::AdminLinkProvider
 {
   AWS_OPERATION_GUARD(AdminLinkProviderForUser);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminLinkProviderForUser, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminLinkProviderForUser",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminLinkProviderForUserOutcome>(
     [&]()-> AdminLinkProviderForUserOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -524,6 +580,10 @@ AdminListDevicesOutcome CognitoIdentityProviderClient::AdminListDevices(const Ad
 {
   AWS_OPERATION_GUARD(AdminListDevices);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminListDevices, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminListDevices",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminListDevicesOutcome>(
     [&]()-> AdminListDevicesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -543,6 +603,10 @@ AdminListGroupsForUserOutcome CognitoIdentityProviderClient::AdminListGroupsForU
 {
   AWS_OPERATION_GUARD(AdminListGroupsForUser);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminListGroupsForUser, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminListGroupsForUser",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminListGroupsForUserOutcome>(
     [&]()-> AdminListGroupsForUserOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -562,6 +626,10 @@ AdminListUserAuthEventsOutcome CognitoIdentityProviderClient::AdminListUserAuthE
 {
   AWS_OPERATION_GUARD(AdminListUserAuthEvents);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminListUserAuthEvents, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminListUserAuthEvents",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminListUserAuthEventsOutcome>(
     [&]()-> AdminListUserAuthEventsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -581,6 +649,10 @@ AdminRemoveUserFromGroupOutcome CognitoIdentityProviderClient::AdminRemoveUserFr
 {
   AWS_OPERATION_GUARD(AdminRemoveUserFromGroup);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminRemoveUserFromGroup, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminRemoveUserFromGroup",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminRemoveUserFromGroupOutcome>(
     [&]()-> AdminRemoveUserFromGroupOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -600,6 +672,10 @@ AdminResetUserPasswordOutcome CognitoIdentityProviderClient::AdminResetUserPassw
 {
   AWS_OPERATION_GUARD(AdminResetUserPassword);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminResetUserPassword, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminResetUserPassword",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminResetUserPasswordOutcome>(
     [&]()-> AdminResetUserPasswordOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -619,6 +695,10 @@ AdminRespondToAuthChallengeOutcome CognitoIdentityProviderClient::AdminRespondTo
 {
   AWS_OPERATION_GUARD(AdminRespondToAuthChallenge);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminRespondToAuthChallenge, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminRespondToAuthChallenge",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminRespondToAuthChallengeOutcome>(
     [&]()-> AdminRespondToAuthChallengeOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -638,6 +718,10 @@ AdminSetUserMFAPreferenceOutcome CognitoIdentityProviderClient::AdminSetUserMFAP
 {
   AWS_OPERATION_GUARD(AdminSetUserMFAPreference);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminSetUserMFAPreference, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminSetUserMFAPreference",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminSetUserMFAPreferenceOutcome>(
     [&]()-> AdminSetUserMFAPreferenceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -657,6 +741,10 @@ AdminSetUserPasswordOutcome CognitoIdentityProviderClient::AdminSetUserPassword(
 {
   AWS_OPERATION_GUARD(AdminSetUserPassword);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminSetUserPassword, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminSetUserPassword",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminSetUserPasswordOutcome>(
     [&]()-> AdminSetUserPasswordOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -676,6 +764,10 @@ AdminSetUserSettingsOutcome CognitoIdentityProviderClient::AdminSetUserSettings(
 {
   AWS_OPERATION_GUARD(AdminSetUserSettings);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminSetUserSettings, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminSetUserSettings",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminSetUserSettingsOutcome>(
     [&]()-> AdminSetUserSettingsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -695,6 +787,10 @@ AdminUpdateAuthEventFeedbackOutcome CognitoIdentityProviderClient::AdminUpdateAu
 {
   AWS_OPERATION_GUARD(AdminUpdateAuthEventFeedback);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminUpdateAuthEventFeedback, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminUpdateAuthEventFeedback",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminUpdateAuthEventFeedbackOutcome>(
     [&]()-> AdminUpdateAuthEventFeedbackOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -714,6 +810,10 @@ AdminUpdateDeviceStatusOutcome CognitoIdentityProviderClient::AdminUpdateDeviceS
 {
   AWS_OPERATION_GUARD(AdminUpdateDeviceStatus);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminUpdateDeviceStatus, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminUpdateDeviceStatus",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminUpdateDeviceStatusOutcome>(
     [&]()-> AdminUpdateDeviceStatusOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -733,6 +833,10 @@ AdminUpdateUserAttributesOutcome CognitoIdentityProviderClient::AdminUpdateUserA
 {
   AWS_OPERATION_GUARD(AdminUpdateUserAttributes);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminUpdateUserAttributes, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminUpdateUserAttributes",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminUpdateUserAttributesOutcome>(
     [&]()-> AdminUpdateUserAttributesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -752,6 +856,10 @@ AdminUserGlobalSignOutOutcome CognitoIdentityProviderClient::AdminUserGlobalSign
 {
   AWS_OPERATION_GUARD(AdminUserGlobalSignOut);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AdminUserGlobalSignOut, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AdminUserGlobalSignOut",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AdminUserGlobalSignOutOutcome>(
     [&]()-> AdminUserGlobalSignOutOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -771,6 +879,10 @@ AssociateSoftwareTokenOutcome CognitoIdentityProviderClient::AssociateSoftwareTo
 {
   AWS_OPERATION_GUARD(AssociateSoftwareToken);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AssociateSoftwareToken, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AssociateSoftwareToken",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AssociateSoftwareTokenOutcome>(
     [&]()-> AssociateSoftwareTokenOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -790,6 +902,10 @@ ChangePasswordOutcome CognitoIdentityProviderClient::ChangePassword(const Change
 {
   AWS_OPERATION_GUARD(ChangePassword);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ChangePassword, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ChangePassword",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ChangePasswordOutcome>(
     [&]()-> ChangePasswordOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -809,6 +925,10 @@ ConfirmDeviceOutcome CognitoIdentityProviderClient::ConfirmDevice(const ConfirmD
 {
   AWS_OPERATION_GUARD(ConfirmDevice);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ConfirmDevice, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ConfirmDevice",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ConfirmDeviceOutcome>(
     [&]()-> ConfirmDeviceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -828,6 +948,10 @@ ConfirmForgotPasswordOutcome CognitoIdentityProviderClient::ConfirmForgotPasswor
 {
   AWS_OPERATION_GUARD(ConfirmForgotPassword);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ConfirmForgotPassword, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ConfirmForgotPassword",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ConfirmForgotPasswordOutcome>(
     [&]()-> ConfirmForgotPasswordOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -847,6 +971,10 @@ ConfirmSignUpOutcome CognitoIdentityProviderClient::ConfirmSignUp(const ConfirmS
 {
   AWS_OPERATION_GUARD(ConfirmSignUp);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ConfirmSignUp, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ConfirmSignUp",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ConfirmSignUpOutcome>(
     [&]()-> ConfirmSignUpOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -866,6 +994,10 @@ CreateGroupOutcome CognitoIdentityProviderClient::CreateGroup(const CreateGroupR
 {
   AWS_OPERATION_GUARD(CreateGroup);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateGroup, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateGroup",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateGroupOutcome>(
     [&]()-> CreateGroupOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -885,6 +1017,10 @@ CreateIdentityProviderOutcome CognitoIdentityProviderClient::CreateIdentityProvi
 {
   AWS_OPERATION_GUARD(CreateIdentityProvider);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateIdentityProvider, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateIdentityProvider",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateIdentityProviderOutcome>(
     [&]()-> CreateIdentityProviderOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -904,6 +1040,10 @@ CreateResourceServerOutcome CognitoIdentityProviderClient::CreateResourceServer(
 {
   AWS_OPERATION_GUARD(CreateResourceServer);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateResourceServer, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateResourceServer",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateResourceServerOutcome>(
     [&]()-> CreateResourceServerOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -923,6 +1063,10 @@ CreateUserImportJobOutcome CognitoIdentityProviderClient::CreateUserImportJob(co
 {
   AWS_OPERATION_GUARD(CreateUserImportJob);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateUserImportJob, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateUserImportJob",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateUserImportJobOutcome>(
     [&]()-> CreateUserImportJobOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -942,6 +1086,10 @@ CreateUserPoolOutcome CognitoIdentityProviderClient::CreateUserPool(const Create
 {
   AWS_OPERATION_GUARD(CreateUserPool);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateUserPool, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateUserPool",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateUserPoolOutcome>(
     [&]()-> CreateUserPoolOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -961,6 +1109,10 @@ CreateUserPoolClientOutcome CognitoIdentityProviderClient::CreateUserPoolClient(
 {
   AWS_OPERATION_GUARD(CreateUserPoolClient);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateUserPoolClient, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateUserPoolClient",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateUserPoolClientOutcome>(
     [&]()-> CreateUserPoolClientOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -980,6 +1132,10 @@ CreateUserPoolDomainOutcome CognitoIdentityProviderClient::CreateUserPoolDomain(
 {
   AWS_OPERATION_GUARD(CreateUserPoolDomain);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateUserPoolDomain, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateUserPoolDomain",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateUserPoolDomainOutcome>(
     [&]()-> CreateUserPoolDomainOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -999,6 +1155,10 @@ DeleteGroupOutcome CognitoIdentityProviderClient::DeleteGroup(const DeleteGroupR
 {
   AWS_OPERATION_GUARD(DeleteGroup);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteGroup, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteGroup",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteGroupOutcome>(
     [&]()-> DeleteGroupOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1018,6 +1178,10 @@ DeleteIdentityProviderOutcome CognitoIdentityProviderClient::DeleteIdentityProvi
 {
   AWS_OPERATION_GUARD(DeleteIdentityProvider);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteIdentityProvider, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteIdentityProvider",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteIdentityProviderOutcome>(
     [&]()-> DeleteIdentityProviderOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1037,6 +1201,10 @@ DeleteResourceServerOutcome CognitoIdentityProviderClient::DeleteResourceServer(
 {
   AWS_OPERATION_GUARD(DeleteResourceServer);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteResourceServer, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteResourceServer",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteResourceServerOutcome>(
     [&]()-> DeleteResourceServerOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1056,6 +1224,10 @@ DeleteUserOutcome CognitoIdentityProviderClient::DeleteUser(const DeleteUserRequ
 {
   AWS_OPERATION_GUARD(DeleteUser);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteUser, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteUser",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteUserOutcome>(
     [&]()-> DeleteUserOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1075,6 +1247,10 @@ DeleteUserAttributesOutcome CognitoIdentityProviderClient::DeleteUserAttributes(
 {
   AWS_OPERATION_GUARD(DeleteUserAttributes);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteUserAttributes, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteUserAttributes",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteUserAttributesOutcome>(
     [&]()-> DeleteUserAttributesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1094,6 +1270,10 @@ DeleteUserPoolOutcome CognitoIdentityProviderClient::DeleteUserPool(const Delete
 {
   AWS_OPERATION_GUARD(DeleteUserPool);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteUserPool, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteUserPool",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteUserPoolOutcome>(
     [&]()-> DeleteUserPoolOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1113,6 +1293,10 @@ DeleteUserPoolClientOutcome CognitoIdentityProviderClient::DeleteUserPoolClient(
 {
   AWS_OPERATION_GUARD(DeleteUserPoolClient);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteUserPoolClient, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteUserPoolClient",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteUserPoolClientOutcome>(
     [&]()-> DeleteUserPoolClientOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1132,6 +1316,10 @@ DeleteUserPoolDomainOutcome CognitoIdentityProviderClient::DeleteUserPoolDomain(
 {
   AWS_OPERATION_GUARD(DeleteUserPoolDomain);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteUserPoolDomain, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteUserPoolDomain",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteUserPoolDomainOutcome>(
     [&]()-> DeleteUserPoolDomainOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1151,6 +1339,10 @@ DescribeIdentityProviderOutcome CognitoIdentityProviderClient::DescribeIdentityP
 {
   AWS_OPERATION_GUARD(DescribeIdentityProvider);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeIdentityProvider, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeIdentityProvider",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeIdentityProviderOutcome>(
     [&]()-> DescribeIdentityProviderOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1170,6 +1362,10 @@ DescribeResourceServerOutcome CognitoIdentityProviderClient::DescribeResourceSer
 {
   AWS_OPERATION_GUARD(DescribeResourceServer);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeResourceServer, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeResourceServer",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeResourceServerOutcome>(
     [&]()-> DescribeResourceServerOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1189,6 +1385,10 @@ DescribeRiskConfigurationOutcome CognitoIdentityProviderClient::DescribeRiskConf
 {
   AWS_OPERATION_GUARD(DescribeRiskConfiguration);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeRiskConfiguration, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeRiskConfiguration",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeRiskConfigurationOutcome>(
     [&]()-> DescribeRiskConfigurationOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1208,6 +1408,10 @@ DescribeUserImportJobOutcome CognitoIdentityProviderClient::DescribeUserImportJo
 {
   AWS_OPERATION_GUARD(DescribeUserImportJob);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeUserImportJob, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeUserImportJob",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeUserImportJobOutcome>(
     [&]()-> DescribeUserImportJobOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1227,6 +1431,10 @@ DescribeUserPoolOutcome CognitoIdentityProviderClient::DescribeUserPool(const De
 {
   AWS_OPERATION_GUARD(DescribeUserPool);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeUserPool, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeUserPool",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeUserPoolOutcome>(
     [&]()-> DescribeUserPoolOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1246,6 +1454,10 @@ DescribeUserPoolClientOutcome CognitoIdentityProviderClient::DescribeUserPoolCli
 {
   AWS_OPERATION_GUARD(DescribeUserPoolClient);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeUserPoolClient, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeUserPoolClient",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeUserPoolClientOutcome>(
     [&]()-> DescribeUserPoolClientOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1265,6 +1477,10 @@ DescribeUserPoolDomainOutcome CognitoIdentityProviderClient::DescribeUserPoolDom
 {
   AWS_OPERATION_GUARD(DescribeUserPoolDomain);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeUserPoolDomain, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeUserPoolDomain",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeUserPoolDomainOutcome>(
     [&]()-> DescribeUserPoolDomainOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1284,6 +1500,10 @@ ForgetDeviceOutcome CognitoIdentityProviderClient::ForgetDevice(const ForgetDevi
 {
   AWS_OPERATION_GUARD(ForgetDevice);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ForgetDevice, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ForgetDevice",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ForgetDeviceOutcome>(
     [&]()-> ForgetDeviceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1303,6 +1523,10 @@ ForgotPasswordOutcome CognitoIdentityProviderClient::ForgotPassword(const Forgot
 {
   AWS_OPERATION_GUARD(ForgotPassword);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ForgotPassword, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ForgotPassword",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ForgotPasswordOutcome>(
     [&]()-> ForgotPasswordOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1322,6 +1546,10 @@ GetCSVHeaderOutcome CognitoIdentityProviderClient::GetCSVHeader(const GetCSVHead
 {
   AWS_OPERATION_GUARD(GetCSVHeader);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetCSVHeader, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetCSVHeader",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetCSVHeaderOutcome>(
     [&]()-> GetCSVHeaderOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1341,6 +1569,10 @@ GetDeviceOutcome CognitoIdentityProviderClient::GetDevice(const GetDeviceRequest
 {
   AWS_OPERATION_GUARD(GetDevice);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetDevice, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetDevice",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetDeviceOutcome>(
     [&]()-> GetDeviceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1360,6 +1592,10 @@ GetGroupOutcome CognitoIdentityProviderClient::GetGroup(const GetGroupRequest& r
 {
   AWS_OPERATION_GUARD(GetGroup);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetGroup, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetGroup",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetGroupOutcome>(
     [&]()-> GetGroupOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1379,6 +1615,10 @@ GetIdentityProviderByIdentifierOutcome CognitoIdentityProviderClient::GetIdentit
 {
   AWS_OPERATION_GUARD(GetIdentityProviderByIdentifier);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetIdentityProviderByIdentifier, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetIdentityProviderByIdentifier",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetIdentityProviderByIdentifierOutcome>(
     [&]()-> GetIdentityProviderByIdentifierOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1398,6 +1638,10 @@ GetSigningCertificateOutcome CognitoIdentityProviderClient::GetSigningCertificat
 {
   AWS_OPERATION_GUARD(GetSigningCertificate);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetSigningCertificate, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetSigningCertificate",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetSigningCertificateOutcome>(
     [&]()-> GetSigningCertificateOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1417,6 +1661,10 @@ GetUICustomizationOutcome CognitoIdentityProviderClient::GetUICustomization(cons
 {
   AWS_OPERATION_GUARD(GetUICustomization);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetUICustomization, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetUICustomization",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetUICustomizationOutcome>(
     [&]()-> GetUICustomizationOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1436,6 +1684,10 @@ GetUserOutcome CognitoIdentityProviderClient::GetUser(const GetUserRequest& requ
 {
   AWS_OPERATION_GUARD(GetUser);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetUser, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetUser",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetUserOutcome>(
     [&]()-> GetUserOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1455,6 +1707,10 @@ GetUserAttributeVerificationCodeOutcome CognitoIdentityProviderClient::GetUserAt
 {
   AWS_OPERATION_GUARD(GetUserAttributeVerificationCode);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetUserAttributeVerificationCode, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetUserAttributeVerificationCode",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetUserAttributeVerificationCodeOutcome>(
     [&]()-> GetUserAttributeVerificationCodeOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1474,6 +1730,10 @@ GetUserPoolMfaConfigOutcome CognitoIdentityProviderClient::GetUserPoolMfaConfig(
 {
   AWS_OPERATION_GUARD(GetUserPoolMfaConfig);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetUserPoolMfaConfig, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetUserPoolMfaConfig",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetUserPoolMfaConfigOutcome>(
     [&]()-> GetUserPoolMfaConfigOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1493,6 +1753,10 @@ GlobalSignOutOutcome CognitoIdentityProviderClient::GlobalSignOut(const GlobalSi
 {
   AWS_OPERATION_GUARD(GlobalSignOut);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GlobalSignOut, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GlobalSignOut",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GlobalSignOutOutcome>(
     [&]()-> GlobalSignOutOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1512,6 +1776,10 @@ InitiateAuthOutcome CognitoIdentityProviderClient::InitiateAuth(const InitiateAu
 {
   AWS_OPERATION_GUARD(InitiateAuth);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, InitiateAuth, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".InitiateAuth",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<InitiateAuthOutcome>(
     [&]()-> InitiateAuthOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1531,6 +1799,10 @@ ListDevicesOutcome CognitoIdentityProviderClient::ListDevices(const ListDevicesR
 {
   AWS_OPERATION_GUARD(ListDevices);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListDevices, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListDevices",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListDevicesOutcome>(
     [&]()-> ListDevicesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1550,6 +1822,10 @@ ListGroupsOutcome CognitoIdentityProviderClient::ListGroups(const ListGroupsRequ
 {
   AWS_OPERATION_GUARD(ListGroups);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListGroups, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListGroups",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListGroupsOutcome>(
     [&]()-> ListGroupsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1569,6 +1845,10 @@ ListIdentityProvidersOutcome CognitoIdentityProviderClient::ListIdentityProvider
 {
   AWS_OPERATION_GUARD(ListIdentityProviders);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListIdentityProviders, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListIdentityProviders",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListIdentityProvidersOutcome>(
     [&]()-> ListIdentityProvidersOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1588,6 +1868,10 @@ ListResourceServersOutcome CognitoIdentityProviderClient::ListResourceServers(co
 {
   AWS_OPERATION_GUARD(ListResourceServers);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListResourceServers, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListResourceServers",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListResourceServersOutcome>(
     [&]()-> ListResourceServersOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1607,6 +1891,10 @@ ListTagsForResourceOutcome CognitoIdentityProviderClient::ListTagsForResource(co
 {
   AWS_OPERATION_GUARD(ListTagsForResource);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListTagsForResource, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListTagsForResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListTagsForResourceOutcome>(
     [&]()-> ListTagsForResourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1626,6 +1914,10 @@ ListUserImportJobsOutcome CognitoIdentityProviderClient::ListUserImportJobs(cons
 {
   AWS_OPERATION_GUARD(ListUserImportJobs);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListUserImportJobs, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListUserImportJobs",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListUserImportJobsOutcome>(
     [&]()-> ListUserImportJobsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1645,6 +1937,10 @@ ListUserPoolClientsOutcome CognitoIdentityProviderClient::ListUserPoolClients(co
 {
   AWS_OPERATION_GUARD(ListUserPoolClients);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListUserPoolClients, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListUserPoolClients",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListUserPoolClientsOutcome>(
     [&]()-> ListUserPoolClientsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1664,6 +1960,10 @@ ListUserPoolsOutcome CognitoIdentityProviderClient::ListUserPools(const ListUser
 {
   AWS_OPERATION_GUARD(ListUserPools);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListUserPools, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListUserPools",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListUserPoolsOutcome>(
     [&]()-> ListUserPoolsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1683,6 +1983,10 @@ ListUsersOutcome CognitoIdentityProviderClient::ListUsers(const ListUsersRequest
 {
   AWS_OPERATION_GUARD(ListUsers);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListUsers, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListUsers",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListUsersOutcome>(
     [&]()-> ListUsersOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1702,6 +2006,10 @@ ListUsersInGroupOutcome CognitoIdentityProviderClient::ListUsersInGroup(const Li
 {
   AWS_OPERATION_GUARD(ListUsersInGroup);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListUsersInGroup, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListUsersInGroup",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListUsersInGroupOutcome>(
     [&]()-> ListUsersInGroupOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1721,6 +2029,10 @@ ResendConfirmationCodeOutcome CognitoIdentityProviderClient::ResendConfirmationC
 {
   AWS_OPERATION_GUARD(ResendConfirmationCode);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ResendConfirmationCode, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ResendConfirmationCode",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResendConfirmationCodeOutcome>(
     [&]()-> ResendConfirmationCodeOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1740,6 +2052,10 @@ RespondToAuthChallengeOutcome CognitoIdentityProviderClient::RespondToAuthChalle
 {
   AWS_OPERATION_GUARD(RespondToAuthChallenge);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, RespondToAuthChallenge, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".RespondToAuthChallenge",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<RespondToAuthChallengeOutcome>(
     [&]()-> RespondToAuthChallengeOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1759,6 +2075,10 @@ RevokeTokenOutcome CognitoIdentityProviderClient::RevokeToken(const RevokeTokenR
 {
   AWS_OPERATION_GUARD(RevokeToken);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, RevokeToken, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".RevokeToken",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<RevokeTokenOutcome>(
     [&]()-> RevokeTokenOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1778,6 +2098,10 @@ SetRiskConfigurationOutcome CognitoIdentityProviderClient::SetRiskConfiguration(
 {
   AWS_OPERATION_GUARD(SetRiskConfiguration);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, SetRiskConfiguration, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".SetRiskConfiguration",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<SetRiskConfigurationOutcome>(
     [&]()-> SetRiskConfigurationOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1797,6 +2121,10 @@ SetUICustomizationOutcome CognitoIdentityProviderClient::SetUICustomization(cons
 {
   AWS_OPERATION_GUARD(SetUICustomization);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, SetUICustomization, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".SetUICustomization",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<SetUICustomizationOutcome>(
     [&]()-> SetUICustomizationOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1816,6 +2144,10 @@ SetUserMFAPreferenceOutcome CognitoIdentityProviderClient::SetUserMFAPreference(
 {
   AWS_OPERATION_GUARD(SetUserMFAPreference);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, SetUserMFAPreference, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".SetUserMFAPreference",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<SetUserMFAPreferenceOutcome>(
     [&]()-> SetUserMFAPreferenceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1835,6 +2167,10 @@ SetUserPoolMfaConfigOutcome CognitoIdentityProviderClient::SetUserPoolMfaConfig(
 {
   AWS_OPERATION_GUARD(SetUserPoolMfaConfig);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, SetUserPoolMfaConfig, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".SetUserPoolMfaConfig",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<SetUserPoolMfaConfigOutcome>(
     [&]()-> SetUserPoolMfaConfigOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1854,6 +2190,10 @@ SetUserSettingsOutcome CognitoIdentityProviderClient::SetUserSettings(const SetU
 {
   AWS_OPERATION_GUARD(SetUserSettings);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, SetUserSettings, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".SetUserSettings",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<SetUserSettingsOutcome>(
     [&]()-> SetUserSettingsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1873,6 +2213,10 @@ SignUpOutcome CognitoIdentityProviderClient::SignUp(const SignUpRequest& request
 {
   AWS_OPERATION_GUARD(SignUp);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, SignUp, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".SignUp",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<SignUpOutcome>(
     [&]()-> SignUpOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1892,6 +2236,10 @@ StartUserImportJobOutcome CognitoIdentityProviderClient::StartUserImportJob(cons
 {
   AWS_OPERATION_GUARD(StartUserImportJob);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, StartUserImportJob, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".StartUserImportJob",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<StartUserImportJobOutcome>(
     [&]()-> StartUserImportJobOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1911,6 +2259,10 @@ StopUserImportJobOutcome CognitoIdentityProviderClient::StopUserImportJob(const 
 {
   AWS_OPERATION_GUARD(StopUserImportJob);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, StopUserImportJob, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".StopUserImportJob",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<StopUserImportJobOutcome>(
     [&]()-> StopUserImportJobOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1930,6 +2282,10 @@ TagResourceOutcome CognitoIdentityProviderClient::TagResource(const TagResourceR
 {
   AWS_OPERATION_GUARD(TagResource);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, TagResource, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".TagResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<TagResourceOutcome>(
     [&]()-> TagResourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1949,6 +2305,10 @@ UntagResourceOutcome CognitoIdentityProviderClient::UntagResource(const UntagRes
 {
   AWS_OPERATION_GUARD(UntagResource);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UntagResource, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UntagResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UntagResourceOutcome>(
     [&]()-> UntagResourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1968,6 +2328,10 @@ UpdateAuthEventFeedbackOutcome CognitoIdentityProviderClient::UpdateAuthEventFee
 {
   AWS_OPERATION_GUARD(UpdateAuthEventFeedback);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateAuthEventFeedback, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateAuthEventFeedback",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateAuthEventFeedbackOutcome>(
     [&]()-> UpdateAuthEventFeedbackOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1987,6 +2351,10 @@ UpdateDeviceStatusOutcome CognitoIdentityProviderClient::UpdateDeviceStatus(cons
 {
   AWS_OPERATION_GUARD(UpdateDeviceStatus);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateDeviceStatus, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateDeviceStatus",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateDeviceStatusOutcome>(
     [&]()-> UpdateDeviceStatusOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -2006,6 +2374,10 @@ UpdateGroupOutcome CognitoIdentityProviderClient::UpdateGroup(const UpdateGroupR
 {
   AWS_OPERATION_GUARD(UpdateGroup);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateGroup, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateGroup",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateGroupOutcome>(
     [&]()-> UpdateGroupOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -2025,6 +2397,10 @@ UpdateIdentityProviderOutcome CognitoIdentityProviderClient::UpdateIdentityProvi
 {
   AWS_OPERATION_GUARD(UpdateIdentityProvider);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateIdentityProvider, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateIdentityProvider",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateIdentityProviderOutcome>(
     [&]()-> UpdateIdentityProviderOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -2044,6 +2420,10 @@ UpdateResourceServerOutcome CognitoIdentityProviderClient::UpdateResourceServer(
 {
   AWS_OPERATION_GUARD(UpdateResourceServer);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateResourceServer, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateResourceServer",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateResourceServerOutcome>(
     [&]()-> UpdateResourceServerOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -2063,6 +2443,10 @@ UpdateUserAttributesOutcome CognitoIdentityProviderClient::UpdateUserAttributes(
 {
   AWS_OPERATION_GUARD(UpdateUserAttributes);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateUserAttributes, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateUserAttributes",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateUserAttributesOutcome>(
     [&]()-> UpdateUserAttributesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -2082,6 +2466,10 @@ UpdateUserPoolOutcome CognitoIdentityProviderClient::UpdateUserPool(const Update
 {
   AWS_OPERATION_GUARD(UpdateUserPool);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateUserPool, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateUserPool",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateUserPoolOutcome>(
     [&]()-> UpdateUserPoolOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -2101,6 +2489,10 @@ UpdateUserPoolClientOutcome CognitoIdentityProviderClient::UpdateUserPoolClient(
 {
   AWS_OPERATION_GUARD(UpdateUserPoolClient);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateUserPoolClient, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateUserPoolClient",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateUserPoolClientOutcome>(
     [&]()-> UpdateUserPoolClientOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -2120,6 +2512,10 @@ UpdateUserPoolDomainOutcome CognitoIdentityProviderClient::UpdateUserPoolDomain(
 {
   AWS_OPERATION_GUARD(UpdateUserPoolDomain);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateUserPoolDomain, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateUserPoolDomain",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateUserPoolDomainOutcome>(
     [&]()-> UpdateUserPoolDomainOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -2139,6 +2535,10 @@ VerifySoftwareTokenOutcome CognitoIdentityProviderClient::VerifySoftwareToken(co
 {
   AWS_OPERATION_GUARD(VerifySoftwareToken);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, VerifySoftwareToken, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".VerifySoftwareToken",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<VerifySoftwareTokenOutcome>(
     [&]()-> VerifySoftwareTokenOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -2158,6 +2558,10 @@ VerifyUserAttributeOutcome CognitoIdentityProviderClient::VerifyUserAttribute(co
 {
   AWS_OPERATION_GUARD(VerifyUserAttribute);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, VerifyUserAttribute, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".VerifyUserAttribute",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<VerifyUserAttributeOutcome>(
     [&]()-> VerifyUserAttributeOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(

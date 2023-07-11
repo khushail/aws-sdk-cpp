@@ -174,6 +174,10 @@ CreateChatTokenOutcome IvschatClient::CreateChatToken(const CreateChatTokenReque
 {
   AWS_OPERATION_GUARD(CreateChatToken);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateChatToken, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateChatToken",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateChatTokenOutcome>(
     [&]()-> CreateChatTokenOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -194,6 +198,10 @@ CreateLoggingConfigurationOutcome IvschatClient::CreateLoggingConfiguration(cons
 {
   AWS_OPERATION_GUARD(CreateLoggingConfiguration);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateLoggingConfiguration, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateLoggingConfiguration",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateLoggingConfigurationOutcome>(
     [&]()-> CreateLoggingConfigurationOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -214,6 +222,10 @@ CreateRoomOutcome IvschatClient::CreateRoom(const CreateRoomRequest& request) co
 {
   AWS_OPERATION_GUARD(CreateRoom);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateRoom, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateRoom",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateRoomOutcome>(
     [&]()-> CreateRoomOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -234,6 +246,10 @@ DeleteLoggingConfigurationOutcome IvschatClient::DeleteLoggingConfiguration(cons
 {
   AWS_OPERATION_GUARD(DeleteLoggingConfiguration);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteLoggingConfiguration, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteLoggingConfiguration",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteLoggingConfigurationOutcome>(
     [&]()-> DeleteLoggingConfigurationOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -254,6 +270,10 @@ DeleteMessageOutcome IvschatClient::DeleteMessage(const DeleteMessageRequest& re
 {
   AWS_OPERATION_GUARD(DeleteMessage);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteMessage, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteMessage",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteMessageOutcome>(
     [&]()-> DeleteMessageOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -274,6 +294,10 @@ DeleteRoomOutcome IvschatClient::DeleteRoom(const DeleteRoomRequest& request) co
 {
   AWS_OPERATION_GUARD(DeleteRoom);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteRoom, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteRoom",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteRoomOutcome>(
     [&]()-> DeleteRoomOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -294,6 +318,10 @@ DisconnectUserOutcome IvschatClient::DisconnectUser(const DisconnectUserRequest&
 {
   AWS_OPERATION_GUARD(DisconnectUser);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DisconnectUser, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DisconnectUser",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DisconnectUserOutcome>(
     [&]()-> DisconnectUserOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -314,6 +342,10 @@ GetLoggingConfigurationOutcome IvschatClient::GetLoggingConfiguration(const GetL
 {
   AWS_OPERATION_GUARD(GetLoggingConfiguration);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetLoggingConfiguration, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetLoggingConfiguration",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetLoggingConfigurationOutcome>(
     [&]()-> GetLoggingConfigurationOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -334,6 +366,10 @@ GetRoomOutcome IvschatClient::GetRoom(const GetRoomRequest& request) const
 {
   AWS_OPERATION_GUARD(GetRoom);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetRoom, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetRoom",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetRoomOutcome>(
     [&]()-> GetRoomOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -354,6 +390,10 @@ ListLoggingConfigurationsOutcome IvschatClient::ListLoggingConfigurations(const 
 {
   AWS_OPERATION_GUARD(ListLoggingConfigurations);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListLoggingConfigurations, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListLoggingConfigurations",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListLoggingConfigurationsOutcome>(
     [&]()-> ListLoggingConfigurationsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -374,6 +414,10 @@ ListRoomsOutcome IvschatClient::ListRooms(const ListRoomsRequest& request) const
 {
   AWS_OPERATION_GUARD(ListRooms);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListRooms, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListRooms",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListRoomsOutcome>(
     [&]()-> ListRoomsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -399,6 +443,10 @@ ListTagsForResourceOutcome IvschatClient::ListTagsForResource(const ListTagsForR
     AWS_LOGSTREAM_ERROR("ListTagsForResource", "Required field: ResourceArn, is not set");
     return ListTagsForResourceOutcome(Aws::Client::AWSError<IvschatErrors>(IvschatErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListTagsForResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListTagsForResourceOutcome>(
     [&]()-> ListTagsForResourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -420,6 +468,10 @@ SendEventOutcome IvschatClient::SendEvent(const SendEventRequest& request) const
 {
   AWS_OPERATION_GUARD(SendEvent);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, SendEvent, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".SendEvent",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<SendEventOutcome>(
     [&]()-> SendEventOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -445,6 +497,10 @@ TagResourceOutcome IvschatClient::TagResource(const TagResourceRequest& request)
     AWS_LOGSTREAM_ERROR("TagResource", "Required field: ResourceArn, is not set");
     return TagResourceOutcome(Aws::Client::AWSError<IvschatErrors>(IvschatErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".TagResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<TagResourceOutcome>(
     [&]()-> TagResourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -476,6 +532,10 @@ UntagResourceOutcome IvschatClient::UntagResource(const UntagResourceRequest& re
     AWS_LOGSTREAM_ERROR("UntagResource", "Required field: TagKeys, is not set");
     return UntagResourceOutcome(Aws::Client::AWSError<IvschatErrors>(IvschatErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TagKeys]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UntagResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UntagResourceOutcome>(
     [&]()-> UntagResourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -497,6 +557,10 @@ UpdateLoggingConfigurationOutcome IvschatClient::UpdateLoggingConfiguration(cons
 {
   AWS_OPERATION_GUARD(UpdateLoggingConfiguration);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateLoggingConfiguration, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateLoggingConfiguration",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateLoggingConfigurationOutcome>(
     [&]()-> UpdateLoggingConfigurationOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -517,6 +581,10 @@ UpdateRoomOutcome IvschatClient::UpdateRoom(const UpdateRoomRequest& request) co
 {
   AWS_OPERATION_GUARD(UpdateRoom);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateRoom, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateRoom",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateRoomOutcome>(
     [&]()-> UpdateRoomOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(

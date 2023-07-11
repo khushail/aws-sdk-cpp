@@ -181,6 +181,10 @@ AddProfilePermissionOutcome SignerClient::AddProfilePermission(const AddProfileP
     AWS_LOGSTREAM_ERROR("AddProfilePermission", "Required field: ProfileName, is not set");
     return AddProfilePermissionOutcome(Aws::Client::AWSError<SignerErrors>(SignerErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ProfileName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AddProfilePermission",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AddProfilePermissionOutcome>(
     [&]()-> AddProfilePermissionOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -208,6 +212,10 @@ CancelSigningProfileOutcome SignerClient::CancelSigningProfile(const CancelSigni
     AWS_LOGSTREAM_ERROR("CancelSigningProfile", "Required field: ProfileName, is not set");
     return CancelSigningProfileOutcome(Aws::Client::AWSError<SignerErrors>(SignerErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ProfileName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CancelSigningProfile",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CancelSigningProfileOutcome>(
     [&]()-> CancelSigningProfileOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -234,6 +242,10 @@ DescribeSigningJobOutcome SignerClient::DescribeSigningJob(const DescribeSigning
     AWS_LOGSTREAM_ERROR("DescribeSigningJob", "Required field: JobId, is not set");
     return DescribeSigningJobOutcome(Aws::Client::AWSError<SignerErrors>(SignerErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [JobId]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeSigningJob",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeSigningJobOutcome>(
     [&]()-> DescribeSigningJobOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -280,6 +292,10 @@ GetRevocationStatusOutcome SignerClient::GetRevocationStatus(const GetRevocation
     AWS_LOGSTREAM_ERROR("GetRevocationStatus", "Required field: CertificateHashes, is not set");
     return GetRevocationStatusOutcome(Aws::Client::AWSError<SignerErrors>(SignerErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [CertificateHashes]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetRevocationStatus",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetRevocationStatusOutcome>(
     [&]()-> GetRevocationStatusOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -307,6 +323,10 @@ GetSigningPlatformOutcome SignerClient::GetSigningPlatform(const GetSigningPlatf
     AWS_LOGSTREAM_ERROR("GetSigningPlatform", "Required field: PlatformId, is not set");
     return GetSigningPlatformOutcome(Aws::Client::AWSError<SignerErrors>(SignerErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [PlatformId]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetSigningPlatform",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetSigningPlatformOutcome>(
     [&]()-> GetSigningPlatformOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -333,6 +353,10 @@ GetSigningProfileOutcome SignerClient::GetSigningProfile(const GetSigningProfile
     AWS_LOGSTREAM_ERROR("GetSigningProfile", "Required field: ProfileName, is not set");
     return GetSigningProfileOutcome(Aws::Client::AWSError<SignerErrors>(SignerErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ProfileName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetSigningProfile",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetSigningProfileOutcome>(
     [&]()-> GetSigningProfileOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -359,6 +383,10 @@ ListProfilePermissionsOutcome SignerClient::ListProfilePermissions(const ListPro
     AWS_LOGSTREAM_ERROR("ListProfilePermissions", "Required field: ProfileName, is not set");
     return ListProfilePermissionsOutcome(Aws::Client::AWSError<SignerErrors>(SignerErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ProfileName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListProfilePermissions",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListProfilePermissionsOutcome>(
     [&]()-> ListProfilePermissionsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -381,6 +409,10 @@ ListSigningJobsOutcome SignerClient::ListSigningJobs(const ListSigningJobsReques
 {
   AWS_OPERATION_GUARD(ListSigningJobs);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListSigningJobs, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListSigningJobs",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListSigningJobsOutcome>(
     [&]()-> ListSigningJobsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -401,6 +433,10 @@ ListSigningPlatformsOutcome SignerClient::ListSigningPlatforms(const ListSigning
 {
   AWS_OPERATION_GUARD(ListSigningPlatforms);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListSigningPlatforms, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListSigningPlatforms",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListSigningPlatformsOutcome>(
     [&]()-> ListSigningPlatformsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -421,6 +457,10 @@ ListSigningProfilesOutcome SignerClient::ListSigningProfiles(const ListSigningPr
 {
   AWS_OPERATION_GUARD(ListSigningProfiles);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListSigningProfiles, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListSigningProfiles",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListSigningProfilesOutcome>(
     [&]()-> ListSigningProfilesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -446,6 +486,10 @@ ListTagsForResourceOutcome SignerClient::ListTagsForResource(const ListTagsForRe
     AWS_LOGSTREAM_ERROR("ListTagsForResource", "Required field: ResourceArn, is not set");
     return ListTagsForResourceOutcome(Aws::Client::AWSError<SignerErrors>(SignerErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListTagsForResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListTagsForResourceOutcome>(
     [&]()-> ListTagsForResourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -472,6 +516,10 @@ PutSigningProfileOutcome SignerClient::PutSigningProfile(const PutSigningProfile
     AWS_LOGSTREAM_ERROR("PutSigningProfile", "Required field: ProfileName, is not set");
     return PutSigningProfileOutcome(Aws::Client::AWSError<SignerErrors>(SignerErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ProfileName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".PutSigningProfile",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<PutSigningProfileOutcome>(
     [&]()-> PutSigningProfileOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -508,6 +556,10 @@ RemoveProfilePermissionOutcome SignerClient::RemoveProfilePermission(const Remov
     AWS_LOGSTREAM_ERROR("RemoveProfilePermission", "Required field: StatementId, is not set");
     return RemoveProfilePermissionOutcome(Aws::Client::AWSError<SignerErrors>(SignerErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [StatementId]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".RemoveProfilePermission",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<RemoveProfilePermissionOutcome>(
     [&]()-> RemoveProfilePermissionOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -536,6 +588,10 @@ RevokeSignatureOutcome SignerClient::RevokeSignature(const RevokeSignatureReques
     AWS_LOGSTREAM_ERROR("RevokeSignature", "Required field: JobId, is not set");
     return RevokeSignatureOutcome(Aws::Client::AWSError<SignerErrors>(SignerErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [JobId]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".RevokeSignature",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<RevokeSignatureOutcome>(
     [&]()-> RevokeSignatureOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -563,6 +619,10 @@ RevokeSigningProfileOutcome SignerClient::RevokeSigningProfile(const RevokeSigni
     AWS_LOGSTREAM_ERROR("RevokeSigningProfile", "Required field: ProfileName, is not set");
     return RevokeSigningProfileOutcome(Aws::Client::AWSError<SignerErrors>(SignerErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ProfileName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".RevokeSigningProfile",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<RevokeSigningProfileOutcome>(
     [&]()-> RevokeSigningProfileOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -585,6 +645,10 @@ SignPayloadOutcome SignerClient::SignPayload(const SignPayloadRequest& request) 
 {
   AWS_OPERATION_GUARD(SignPayload);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, SignPayload, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".SignPayload",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<SignPayloadOutcome>(
     [&]()-> SignPayloadOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -605,6 +669,10 @@ StartSigningJobOutcome SignerClient::StartSigningJob(const StartSigningJobReques
 {
   AWS_OPERATION_GUARD(StartSigningJob);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, StartSigningJob, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".StartSigningJob",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<StartSigningJobOutcome>(
     [&]()-> StartSigningJobOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -630,6 +698,10 @@ TagResourceOutcome SignerClient::TagResource(const TagResourceRequest& request) 
     AWS_LOGSTREAM_ERROR("TagResource", "Required field: ResourceArn, is not set");
     return TagResourceOutcome(Aws::Client::AWSError<SignerErrors>(SignerErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".TagResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<TagResourceOutcome>(
     [&]()-> TagResourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -661,6 +733,10 @@ UntagResourceOutcome SignerClient::UntagResource(const UntagResourceRequest& req
     AWS_LOGSTREAM_ERROR("UntagResource", "Required field: TagKeys, is not set");
     return UntagResourceOutcome(Aws::Client::AWSError<SignerErrors>(SignerErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TagKeys]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UntagResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UntagResourceOutcome>(
     [&]()-> UntagResourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(

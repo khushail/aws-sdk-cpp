@@ -170,6 +170,10 @@ CreateEnvironmentEC2Outcome Cloud9Client::CreateEnvironmentEC2(const CreateEnvir
 {
   AWS_OPERATION_GUARD(CreateEnvironmentEC2);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateEnvironmentEC2, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateEnvironmentEC2",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateEnvironmentEC2Outcome>(
     [&]()-> CreateEnvironmentEC2Outcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -189,6 +193,10 @@ CreateEnvironmentMembershipOutcome Cloud9Client::CreateEnvironmentMembership(con
 {
   AWS_OPERATION_GUARD(CreateEnvironmentMembership);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateEnvironmentMembership, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateEnvironmentMembership",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateEnvironmentMembershipOutcome>(
     [&]()-> CreateEnvironmentMembershipOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -208,6 +216,10 @@ DeleteEnvironmentOutcome Cloud9Client::DeleteEnvironment(const DeleteEnvironment
 {
   AWS_OPERATION_GUARD(DeleteEnvironment);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteEnvironment, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteEnvironment",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteEnvironmentOutcome>(
     [&]()-> DeleteEnvironmentOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -227,6 +239,10 @@ DeleteEnvironmentMembershipOutcome Cloud9Client::DeleteEnvironmentMembership(con
 {
   AWS_OPERATION_GUARD(DeleteEnvironmentMembership);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteEnvironmentMembership, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteEnvironmentMembership",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteEnvironmentMembershipOutcome>(
     [&]()-> DeleteEnvironmentMembershipOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -246,6 +262,10 @@ DescribeEnvironmentMembershipsOutcome Cloud9Client::DescribeEnvironmentMembershi
 {
   AWS_OPERATION_GUARD(DescribeEnvironmentMemberships);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeEnvironmentMemberships, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeEnvironmentMemberships",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeEnvironmentMembershipsOutcome>(
     [&]()-> DescribeEnvironmentMembershipsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -265,6 +285,10 @@ DescribeEnvironmentStatusOutcome Cloud9Client::DescribeEnvironmentStatus(const D
 {
   AWS_OPERATION_GUARD(DescribeEnvironmentStatus);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeEnvironmentStatus, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeEnvironmentStatus",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeEnvironmentStatusOutcome>(
     [&]()-> DescribeEnvironmentStatusOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -284,6 +308,10 @@ DescribeEnvironmentsOutcome Cloud9Client::DescribeEnvironments(const DescribeEnv
 {
   AWS_OPERATION_GUARD(DescribeEnvironments);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeEnvironments, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeEnvironments",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeEnvironmentsOutcome>(
     [&]()-> DescribeEnvironmentsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -303,6 +331,10 @@ ListEnvironmentsOutcome Cloud9Client::ListEnvironments(const ListEnvironmentsReq
 {
   AWS_OPERATION_GUARD(ListEnvironments);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListEnvironments, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListEnvironments",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListEnvironmentsOutcome>(
     [&]()-> ListEnvironmentsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -322,6 +354,10 @@ ListTagsForResourceOutcome Cloud9Client::ListTagsForResource(const ListTagsForRe
 {
   AWS_OPERATION_GUARD(ListTagsForResource);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListTagsForResource, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListTagsForResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListTagsForResourceOutcome>(
     [&]()-> ListTagsForResourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -341,6 +377,10 @@ TagResourceOutcome Cloud9Client::TagResource(const TagResourceRequest& request) 
 {
   AWS_OPERATION_GUARD(TagResource);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, TagResource, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".TagResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<TagResourceOutcome>(
     [&]()-> TagResourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -360,6 +400,10 @@ UntagResourceOutcome Cloud9Client::UntagResource(const UntagResourceRequest& req
 {
   AWS_OPERATION_GUARD(UntagResource);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UntagResource, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UntagResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UntagResourceOutcome>(
     [&]()-> UntagResourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -379,6 +423,10 @@ UpdateEnvironmentOutcome Cloud9Client::UpdateEnvironment(const UpdateEnvironment
 {
   AWS_OPERATION_GUARD(UpdateEnvironment);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateEnvironment, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateEnvironment",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateEnvironmentOutcome>(
     [&]()-> UpdateEnvironmentOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -398,6 +446,10 @@ UpdateEnvironmentMembershipOutcome Cloud9Client::UpdateEnvironmentMembership(con
 {
   AWS_OPERATION_GUARD(UpdateEnvironmentMembership);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateEnvironmentMembership, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateEnvironmentMembership",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateEnvironmentMembershipOutcome>(
     [&]()-> UpdateEnvironmentMembershipOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(

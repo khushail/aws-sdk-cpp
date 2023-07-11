@@ -161,6 +161,10 @@ GetServiceSettingsOutcome LicenseManagerLinuxSubscriptionsClient::GetServiceSett
 {
   AWS_OPERATION_GUARD(GetServiceSettings);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetServiceSettings, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetServiceSettings",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetServiceSettingsOutcome>(
     [&]()-> GetServiceSettingsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -181,6 +185,10 @@ ListLinuxSubscriptionInstancesOutcome LicenseManagerLinuxSubscriptionsClient::Li
 {
   AWS_OPERATION_GUARD(ListLinuxSubscriptionInstances);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListLinuxSubscriptionInstances, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListLinuxSubscriptionInstances",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListLinuxSubscriptionInstancesOutcome>(
     [&]()-> ListLinuxSubscriptionInstancesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -201,6 +209,10 @@ ListLinuxSubscriptionsOutcome LicenseManagerLinuxSubscriptionsClient::ListLinuxS
 {
   AWS_OPERATION_GUARD(ListLinuxSubscriptions);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListLinuxSubscriptions, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListLinuxSubscriptions",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListLinuxSubscriptionsOutcome>(
     [&]()-> ListLinuxSubscriptionsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -221,6 +233,10 @@ UpdateServiceSettingsOutcome LicenseManagerLinuxSubscriptionsClient::UpdateServi
 {
   AWS_OPERATION_GUARD(UpdateServiceSettings);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateServiceSettings, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateServiceSettings",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateServiceSettingsOutcome>(
     [&]()-> UpdateServiceSettingsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(

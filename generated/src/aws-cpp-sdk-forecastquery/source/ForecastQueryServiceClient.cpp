@@ -159,6 +159,10 @@ QueryForecastOutcome ForecastQueryServiceClient::QueryForecast(const QueryForeca
 {
   AWS_OPERATION_GUARD(QueryForecast);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, QueryForecast, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".QueryForecast",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<QueryForecastOutcome>(
     [&]()-> QueryForecastOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -178,6 +182,10 @@ QueryWhatIfForecastOutcome ForecastQueryServiceClient::QueryWhatIfForecast(const
 {
   AWS_OPERATION_GUARD(QueryWhatIfForecast);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, QueryWhatIfForecast, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".QueryWhatIfForecast",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<QueryWhatIfForecastOutcome>(
     [&]()-> QueryWhatIfForecastOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(

@@ -163,6 +163,10 @@ PutAuditEventsOutcome CloudTrailDataClient::PutAuditEvents(const PutAuditEventsR
     AWS_LOGSTREAM_ERROR("PutAuditEvents", "Required field: ChannelArn, is not set");
     return PutAuditEventsOutcome(Aws::Client::AWSError<CloudTrailDataErrors>(CloudTrailDataErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ChannelArn]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".PutAuditEvents",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<PutAuditEventsOutcome>(
     [&]()-> PutAuditEventsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(

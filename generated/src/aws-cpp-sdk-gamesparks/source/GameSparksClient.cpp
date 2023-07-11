@@ -190,6 +190,10 @@ CreateGameOutcome GameSparksClient::CreateGame(const CreateGameRequest& request)
 {
   AWS_OPERATION_GUARD(CreateGame);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateGame, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateGame",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateGameOutcome>(
     [&]()-> CreateGameOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -215,6 +219,10 @@ CreateSnapshotOutcome GameSparksClient::CreateSnapshot(const CreateSnapshotReque
     AWS_LOGSTREAM_ERROR("CreateSnapshot", "Required field: GameName, is not set");
     return CreateSnapshotOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [GameName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateSnapshot",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateSnapshotOutcome>(
     [&]()-> CreateSnapshotOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -242,6 +250,10 @@ CreateStageOutcome GameSparksClient::CreateStage(const CreateStageRequest& reque
     AWS_LOGSTREAM_ERROR("CreateStage", "Required field: GameName, is not set");
     return CreateStageOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [GameName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateStage",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateStageOutcome>(
     [&]()-> CreateStageOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -269,6 +281,10 @@ DeleteGameOutcome GameSparksClient::DeleteGame(const DeleteGameRequest& request)
     AWS_LOGSTREAM_ERROR("DeleteGame", "Required field: GameName, is not set");
     return DeleteGameOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [GameName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteGame",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteGameOutcome>(
     [&]()-> DeleteGameOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -300,6 +316,10 @@ DeleteStageOutcome GameSparksClient::DeleteStage(const DeleteStageRequest& reque
     AWS_LOGSTREAM_ERROR("DeleteStage", "Required field: StageName, is not set");
     return DeleteStageOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [StageName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteStage",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteStageOutcome>(
     [&]()-> DeleteStageOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -338,6 +358,10 @@ DisconnectPlayerOutcome GameSparksClient::DisconnectPlayer(const DisconnectPlaye
     AWS_LOGSTREAM_ERROR("DisconnectPlayer", "Required field: StageName, is not set");
     return DisconnectPlayerOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [StageName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DisconnectPlayer",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DisconnectPlayerOutcome>(
     [&]()-> DisconnectPlayerOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -374,6 +398,10 @@ ExportSnapshotOutcome GameSparksClient::ExportSnapshot(const ExportSnapshotReque
     AWS_LOGSTREAM_ERROR("ExportSnapshot", "Required field: SnapshotId, is not set");
     return ExportSnapshotOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [SnapshotId]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ExportSnapshot",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ExportSnapshotOutcome>(
     [&]()-> ExportSnapshotOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -408,6 +436,10 @@ GetExtensionOutcome GameSparksClient::GetExtension(const GetExtensionRequest& re
     AWS_LOGSTREAM_ERROR("GetExtension", "Required field: Namespace, is not set");
     return GetExtensionOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Namespace]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetExtension",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetExtensionOutcome>(
     [&]()-> GetExtensionOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -445,6 +477,10 @@ GetExtensionVersionOutcome GameSparksClient::GetExtensionVersion(const GetExtens
     AWS_LOGSTREAM_ERROR("GetExtensionVersion", "Required field: Namespace, is not set");
     return GetExtensionVersionOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Namespace]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetExtensionVersion",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetExtensionVersionOutcome>(
     [&]()-> GetExtensionVersionOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -474,6 +510,10 @@ GetGameOutcome GameSparksClient::GetGame(const GetGameRequest& request) const
     AWS_LOGSTREAM_ERROR("GetGame", "Required field: GameName, is not set");
     return GetGameOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [GameName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetGame",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetGameOutcome>(
     [&]()-> GetGameOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -500,6 +540,10 @@ GetGameConfigurationOutcome GameSparksClient::GetGameConfiguration(const GetGame
     AWS_LOGSTREAM_ERROR("GetGameConfiguration", "Required field: GameName, is not set");
     return GetGameConfigurationOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [GameName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetGameConfiguration",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetGameConfigurationOutcome>(
     [&]()-> GetGameConfigurationOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -537,6 +581,10 @@ GetGeneratedCodeJobOutcome GameSparksClient::GetGeneratedCodeJob(const GetGenera
     AWS_LOGSTREAM_ERROR("GetGeneratedCodeJob", "Required field: SnapshotId, is not set");
     return GetGeneratedCodeJobOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [SnapshotId]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetGeneratedCodeJob",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetGeneratedCodeJobOutcome>(
     [&]()-> GetGeneratedCodeJobOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -577,6 +625,10 @@ GetPlayerConnectionStatusOutcome GameSparksClient::GetPlayerConnectionStatus(con
     AWS_LOGSTREAM_ERROR("GetPlayerConnectionStatus", "Required field: StageName, is not set");
     return GetPlayerConnectionStatusOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [StageName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetPlayerConnectionStatus",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetPlayerConnectionStatusOutcome>(
     [&]()-> GetPlayerConnectionStatusOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -613,6 +665,10 @@ GetSnapshotOutcome GameSparksClient::GetSnapshot(const GetSnapshotRequest& reque
     AWS_LOGSTREAM_ERROR("GetSnapshot", "Required field: SnapshotId, is not set");
     return GetSnapshotOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [SnapshotId]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetSnapshot",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetSnapshotOutcome>(
     [&]()-> GetSnapshotOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -646,6 +702,10 @@ GetStageOutcome GameSparksClient::GetStage(const GetStageRequest& request) const
     AWS_LOGSTREAM_ERROR("GetStage", "Required field: StageName, is not set");
     return GetStageOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [StageName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetStage",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetStageOutcome>(
     [&]()-> GetStageOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -679,6 +739,10 @@ GetStageDeploymentOutcome GameSparksClient::GetStageDeployment(const GetStageDep
     AWS_LOGSTREAM_ERROR("GetStageDeployment", "Required field: StageName, is not set");
     return GetStageDeploymentOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [StageName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetStageDeployment",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetStageDeploymentOutcome>(
     [&]()-> GetStageDeploymentOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -708,6 +772,10 @@ ImportGameConfigurationOutcome GameSparksClient::ImportGameConfiguration(const I
     AWS_LOGSTREAM_ERROR("ImportGameConfiguration", "Required field: GameName, is not set");
     return ImportGameConfigurationOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [GameName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ImportGameConfiguration",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ImportGameConfigurationOutcome>(
     [&]()-> ImportGameConfigurationOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -740,6 +808,10 @@ ListExtensionVersionsOutcome GameSparksClient::ListExtensionVersions(const ListE
     AWS_LOGSTREAM_ERROR("ListExtensionVersions", "Required field: Namespace, is not set");
     return ListExtensionVersionsOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Namespace]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListExtensionVersions",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListExtensionVersionsOutcome>(
     [&]()-> ListExtensionVersionsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -763,6 +835,10 @@ ListExtensionsOutcome GameSparksClient::ListExtensions(const ListExtensionsReque
 {
   AWS_OPERATION_GUARD(ListExtensions);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListExtensions, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListExtensions",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListExtensionsOutcome>(
     [&]()-> ListExtensionsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -783,6 +859,10 @@ ListGamesOutcome GameSparksClient::ListGames(const ListGamesRequest& request) co
 {
   AWS_OPERATION_GUARD(ListGames);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListGames, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListGames",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListGamesOutcome>(
     [&]()-> ListGamesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -813,6 +893,10 @@ ListGeneratedCodeJobsOutcome GameSparksClient::ListGeneratedCodeJobs(const ListG
     AWS_LOGSTREAM_ERROR("ListGeneratedCodeJobs", "Required field: SnapshotId, is not set");
     return ListGeneratedCodeJobsOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [SnapshotId]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListGeneratedCodeJobs",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListGeneratedCodeJobsOutcome>(
     [&]()-> ListGeneratedCodeJobsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -842,6 +926,10 @@ ListSnapshotsOutcome GameSparksClient::ListSnapshots(const ListSnapshotsRequest&
     AWS_LOGSTREAM_ERROR("ListSnapshots", "Required field: GameName, is not set");
     return ListSnapshotsOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [GameName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListSnapshots",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListSnapshotsOutcome>(
     [&]()-> ListSnapshotsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -874,6 +962,10 @@ ListStageDeploymentsOutcome GameSparksClient::ListStageDeployments(const ListSta
     AWS_LOGSTREAM_ERROR("ListStageDeployments", "Required field: StageName, is not set");
     return ListStageDeploymentsOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [StageName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListStageDeployments",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListStageDeploymentsOutcome>(
     [&]()-> ListStageDeploymentsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -903,6 +995,10 @@ ListStagesOutcome GameSparksClient::ListStages(const ListStagesRequest& request)
     AWS_LOGSTREAM_ERROR("ListStages", "Required field: GameName, is not set");
     return ListStagesOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [GameName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListStages",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListStagesOutcome>(
     [&]()-> ListStagesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -930,6 +1026,10 @@ ListTagsForResourceOutcome GameSparksClient::ListTagsForResource(const ListTagsF
     AWS_LOGSTREAM_ERROR("ListTagsForResource", "Required field: ResourceArn, is not set");
     return ListTagsForResourceOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListTagsForResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListTagsForResourceOutcome>(
     [&]()-> ListTagsForResourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -961,6 +1061,10 @@ StartGeneratedCodeJobOutcome GameSparksClient::StartGeneratedCodeJob(const Start
     AWS_LOGSTREAM_ERROR("StartGeneratedCodeJob", "Required field: SnapshotId, is not set");
     return StartGeneratedCodeJobOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [SnapshotId]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".StartGeneratedCodeJob",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<StartGeneratedCodeJobOutcome>(
     [&]()-> StartGeneratedCodeJobOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -995,6 +1099,10 @@ StartStageDeploymentOutcome GameSparksClient::StartStageDeployment(const StartSt
     AWS_LOGSTREAM_ERROR("StartStageDeployment", "Required field: StageName, is not set");
     return StartStageDeploymentOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [StageName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".StartStageDeployment",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<StartStageDeploymentOutcome>(
     [&]()-> StartStageDeploymentOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1024,6 +1132,10 @@ TagResourceOutcome GameSparksClient::TagResource(const TagResourceRequest& reque
     AWS_LOGSTREAM_ERROR("TagResource", "Required field: ResourceArn, is not set");
     return TagResourceOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".TagResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<TagResourceOutcome>(
     [&]()-> TagResourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1055,6 +1167,10 @@ UntagResourceOutcome GameSparksClient::UntagResource(const UntagResourceRequest&
     AWS_LOGSTREAM_ERROR("UntagResource", "Required field: TagKeys, is not set");
     return UntagResourceOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TagKeys]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UntagResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UntagResourceOutcome>(
     [&]()-> UntagResourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1081,6 +1197,10 @@ UpdateGameOutcome GameSparksClient::UpdateGame(const UpdateGameRequest& request)
     AWS_LOGSTREAM_ERROR("UpdateGame", "Required field: GameName, is not set");
     return UpdateGameOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [GameName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateGame",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateGameOutcome>(
     [&]()-> UpdateGameOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1107,6 +1227,10 @@ UpdateGameConfigurationOutcome GameSparksClient::UpdateGameConfiguration(const U
     AWS_LOGSTREAM_ERROR("UpdateGameConfiguration", "Required field: GameName, is not set");
     return UpdateGameConfigurationOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [GameName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateGameConfiguration",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateGameConfigurationOutcome>(
     [&]()-> UpdateGameConfigurationOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1139,6 +1263,10 @@ UpdateSnapshotOutcome GameSparksClient::UpdateSnapshot(const UpdateSnapshotReque
     AWS_LOGSTREAM_ERROR("UpdateSnapshot", "Required field: SnapshotId, is not set");
     return UpdateSnapshotOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [SnapshotId]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateSnapshot",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateSnapshotOutcome>(
     [&]()-> UpdateSnapshotOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1172,6 +1300,10 @@ UpdateStageOutcome GameSparksClient::UpdateStage(const UpdateStageRequest& reque
     AWS_LOGSTREAM_ERROR("UpdateStage", "Required field: StageName, is not set");
     return UpdateStageOutcome(Aws::Client::AWSError<GameSparksErrors>(GameSparksErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [StageName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateStage",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateStageOutcome>(
     [&]()-> UpdateStageOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(

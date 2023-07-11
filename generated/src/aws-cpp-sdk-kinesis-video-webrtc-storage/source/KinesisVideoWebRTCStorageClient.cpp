@@ -158,6 +158,10 @@ JoinStorageSessionOutcome KinesisVideoWebRTCStorageClient::JoinStorageSession(co
 {
   AWS_OPERATION_GUARD(JoinStorageSession);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, JoinStorageSession, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".JoinStorageSession",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<JoinStorageSessionOutcome>(
     [&]()-> JoinStorageSessionOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(

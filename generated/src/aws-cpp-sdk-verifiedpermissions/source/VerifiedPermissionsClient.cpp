@@ -181,6 +181,10 @@ CreateIdentitySourceOutcome VerifiedPermissionsClient::CreateIdentitySource(cons
 {
   AWS_OPERATION_GUARD(CreateIdentitySource);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateIdentitySource, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateIdentitySource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateIdentitySourceOutcome>(
     [&]()-> CreateIdentitySourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -200,6 +204,10 @@ CreatePolicyOutcome VerifiedPermissionsClient::CreatePolicy(const CreatePolicyRe
 {
   AWS_OPERATION_GUARD(CreatePolicy);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreatePolicy, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreatePolicy",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreatePolicyOutcome>(
     [&]()-> CreatePolicyOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -219,6 +227,10 @@ CreatePolicyStoreOutcome VerifiedPermissionsClient::CreatePolicyStore(const Crea
 {
   AWS_OPERATION_GUARD(CreatePolicyStore);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreatePolicyStore, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreatePolicyStore",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreatePolicyStoreOutcome>(
     [&]()-> CreatePolicyStoreOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -238,6 +250,10 @@ CreatePolicyTemplateOutcome VerifiedPermissionsClient::CreatePolicyTemplate(cons
 {
   AWS_OPERATION_GUARD(CreatePolicyTemplate);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreatePolicyTemplate, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreatePolicyTemplate",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreatePolicyTemplateOutcome>(
     [&]()-> CreatePolicyTemplateOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -257,6 +273,10 @@ DeleteIdentitySourceOutcome VerifiedPermissionsClient::DeleteIdentitySource(cons
 {
   AWS_OPERATION_GUARD(DeleteIdentitySource);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteIdentitySource, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteIdentitySource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteIdentitySourceOutcome>(
     [&]()-> DeleteIdentitySourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -276,6 +296,10 @@ DeletePolicyOutcome VerifiedPermissionsClient::DeletePolicy(const DeletePolicyRe
 {
   AWS_OPERATION_GUARD(DeletePolicy);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeletePolicy, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeletePolicy",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeletePolicyOutcome>(
     [&]()-> DeletePolicyOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -295,6 +319,10 @@ DeletePolicyStoreOutcome VerifiedPermissionsClient::DeletePolicyStore(const Dele
 {
   AWS_OPERATION_GUARD(DeletePolicyStore);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeletePolicyStore, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeletePolicyStore",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeletePolicyStoreOutcome>(
     [&]()-> DeletePolicyStoreOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -314,6 +342,10 @@ DeletePolicyTemplateOutcome VerifiedPermissionsClient::DeletePolicyTemplate(cons
 {
   AWS_OPERATION_GUARD(DeletePolicyTemplate);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeletePolicyTemplate, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeletePolicyTemplate",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeletePolicyTemplateOutcome>(
     [&]()-> DeletePolicyTemplateOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -333,6 +365,10 @@ GetIdentitySourceOutcome VerifiedPermissionsClient::GetIdentitySource(const GetI
 {
   AWS_OPERATION_GUARD(GetIdentitySource);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetIdentitySource, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetIdentitySource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetIdentitySourceOutcome>(
     [&]()-> GetIdentitySourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -352,6 +388,10 @@ GetPolicyOutcome VerifiedPermissionsClient::GetPolicy(const GetPolicyRequest& re
 {
   AWS_OPERATION_GUARD(GetPolicy);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetPolicy, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetPolicy",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetPolicyOutcome>(
     [&]()-> GetPolicyOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -371,6 +411,10 @@ GetPolicyStoreOutcome VerifiedPermissionsClient::GetPolicyStore(const GetPolicyS
 {
   AWS_OPERATION_GUARD(GetPolicyStore);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetPolicyStore, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetPolicyStore",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetPolicyStoreOutcome>(
     [&]()-> GetPolicyStoreOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -390,6 +434,10 @@ GetPolicyTemplateOutcome VerifiedPermissionsClient::GetPolicyTemplate(const GetP
 {
   AWS_OPERATION_GUARD(GetPolicyTemplate);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetPolicyTemplate, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetPolicyTemplate",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetPolicyTemplateOutcome>(
     [&]()-> GetPolicyTemplateOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -409,6 +457,10 @@ GetSchemaOutcome VerifiedPermissionsClient::GetSchema(const GetSchemaRequest& re
 {
   AWS_OPERATION_GUARD(GetSchema);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetSchema, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetSchema",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetSchemaOutcome>(
     [&]()-> GetSchemaOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -428,6 +480,10 @@ IsAuthorizedOutcome VerifiedPermissionsClient::IsAuthorized(const IsAuthorizedRe
 {
   AWS_OPERATION_GUARD(IsAuthorized);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, IsAuthorized, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".IsAuthorized",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<IsAuthorizedOutcome>(
     [&]()-> IsAuthorizedOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -447,6 +503,10 @@ IsAuthorizedWithTokenOutcome VerifiedPermissionsClient::IsAuthorizedWithToken(co
 {
   AWS_OPERATION_GUARD(IsAuthorizedWithToken);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, IsAuthorizedWithToken, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".IsAuthorizedWithToken",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<IsAuthorizedWithTokenOutcome>(
     [&]()-> IsAuthorizedWithTokenOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -466,6 +526,10 @@ ListIdentitySourcesOutcome VerifiedPermissionsClient::ListIdentitySources(const 
 {
   AWS_OPERATION_GUARD(ListIdentitySources);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListIdentitySources, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListIdentitySources",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListIdentitySourcesOutcome>(
     [&]()-> ListIdentitySourcesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -485,6 +549,10 @@ ListPoliciesOutcome VerifiedPermissionsClient::ListPolicies(const ListPoliciesRe
 {
   AWS_OPERATION_GUARD(ListPolicies);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListPolicies, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListPolicies",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListPoliciesOutcome>(
     [&]()-> ListPoliciesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -504,6 +572,10 @@ ListPolicyStoresOutcome VerifiedPermissionsClient::ListPolicyStores(const ListPo
 {
   AWS_OPERATION_GUARD(ListPolicyStores);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListPolicyStores, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListPolicyStores",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListPolicyStoresOutcome>(
     [&]()-> ListPolicyStoresOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -523,6 +595,10 @@ ListPolicyTemplatesOutcome VerifiedPermissionsClient::ListPolicyTemplates(const 
 {
   AWS_OPERATION_GUARD(ListPolicyTemplates);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListPolicyTemplates, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListPolicyTemplates",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListPolicyTemplatesOutcome>(
     [&]()-> ListPolicyTemplatesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -542,6 +618,10 @@ PutSchemaOutcome VerifiedPermissionsClient::PutSchema(const PutSchemaRequest& re
 {
   AWS_OPERATION_GUARD(PutSchema);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, PutSchema, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".PutSchema",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<PutSchemaOutcome>(
     [&]()-> PutSchemaOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -561,6 +641,10 @@ UpdateIdentitySourceOutcome VerifiedPermissionsClient::UpdateIdentitySource(cons
 {
   AWS_OPERATION_GUARD(UpdateIdentitySource);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateIdentitySource, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateIdentitySource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateIdentitySourceOutcome>(
     [&]()-> UpdateIdentitySourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -580,6 +664,10 @@ UpdatePolicyOutcome VerifiedPermissionsClient::UpdatePolicy(const UpdatePolicyRe
 {
   AWS_OPERATION_GUARD(UpdatePolicy);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdatePolicy, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdatePolicy",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdatePolicyOutcome>(
     [&]()-> UpdatePolicyOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -599,6 +687,10 @@ UpdatePolicyStoreOutcome VerifiedPermissionsClient::UpdatePolicyStore(const Upda
 {
   AWS_OPERATION_GUARD(UpdatePolicyStore);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdatePolicyStore, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdatePolicyStore",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdatePolicyStoreOutcome>(
     [&]()-> UpdatePolicyStoreOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -618,6 +710,10 @@ UpdatePolicyTemplateOutcome VerifiedPermissionsClient::UpdatePolicyTemplate(cons
 {
   AWS_OPERATION_GUARD(UpdatePolicyTemplate);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdatePolicyTemplate, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdatePolicyTemplate",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdatePolicyTemplateOutcome>(
     [&]()-> UpdatePolicyTemplateOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(

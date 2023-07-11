@@ -211,6 +211,10 @@ BatchExecuteStatementOutcome DynamoDBClient::BatchExecuteStatement(const BatchEx
 {
   AWS_OPERATION_GUARD(BatchExecuteStatement);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, BatchExecuteStatement, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".BatchExecuteStatement",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<BatchExecuteStatementOutcome>(
     [&]()-> BatchExecuteStatementOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -230,6 +234,10 @@ BatchGetItemOutcome DynamoDBClient::BatchGetItem(const BatchGetItemRequest& requ
 {
   AWS_OPERATION_GUARD(BatchGetItem);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, BatchGetItem, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".BatchGetItem",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<BatchGetItemOutcome>(
     [&]()-> BatchGetItemOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -284,6 +292,10 @@ BatchWriteItemOutcome DynamoDBClient::BatchWriteItem(const BatchWriteItemRequest
 {
   AWS_OPERATION_GUARD(BatchWriteItem);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, BatchWriteItem, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".BatchWriteItem",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<BatchWriteItemOutcome>(
     [&]()-> BatchWriteItemOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -338,6 +350,10 @@ CreateBackupOutcome DynamoDBClient::CreateBackup(const CreateBackupRequest& requ
 {
   AWS_OPERATION_GUARD(CreateBackup);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateBackup, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateBackup",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateBackupOutcome>(
     [&]()-> CreateBackupOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -392,6 +408,10 @@ CreateGlobalTableOutcome DynamoDBClient::CreateGlobalTable(const CreateGlobalTab
 {
   AWS_OPERATION_GUARD(CreateGlobalTable);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateGlobalTable, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateGlobalTable",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateGlobalTableOutcome>(
     [&]()-> CreateGlobalTableOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -446,6 +466,10 @@ CreateTableOutcome DynamoDBClient::CreateTable(const CreateTableRequest& request
 {
   AWS_OPERATION_GUARD(CreateTable);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateTable, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateTable",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateTableOutcome>(
     [&]()-> CreateTableOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -500,6 +524,10 @@ DeleteBackupOutcome DynamoDBClient::DeleteBackup(const DeleteBackupRequest& requ
 {
   AWS_OPERATION_GUARD(DeleteBackup);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteBackup, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteBackup",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteBackupOutcome>(
     [&]()-> DeleteBackupOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -554,6 +582,10 @@ DeleteItemOutcome DynamoDBClient::DeleteItem(const DeleteItemRequest& request) c
 {
   AWS_OPERATION_GUARD(DeleteItem);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteItem, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteItem",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteItemOutcome>(
     [&]()-> DeleteItemOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -608,6 +640,10 @@ DeleteTableOutcome DynamoDBClient::DeleteTable(const DeleteTableRequest& request
 {
   AWS_OPERATION_GUARD(DeleteTable);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteTable, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteTable",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteTableOutcome>(
     [&]()-> DeleteTableOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -662,6 +698,10 @@ DescribeBackupOutcome DynamoDBClient::DescribeBackup(const DescribeBackupRequest
 {
   AWS_OPERATION_GUARD(DescribeBackup);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeBackup, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeBackup",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeBackupOutcome>(
     [&]()-> DescribeBackupOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -716,6 +756,10 @@ DescribeContinuousBackupsOutcome DynamoDBClient::DescribeContinuousBackups(const
 {
   AWS_OPERATION_GUARD(DescribeContinuousBackups);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeContinuousBackups, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeContinuousBackups",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeContinuousBackupsOutcome>(
     [&]()-> DescribeContinuousBackupsOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -770,6 +814,10 @@ DescribeContributorInsightsOutcome DynamoDBClient::DescribeContributorInsights(c
 {
   AWS_OPERATION_GUARD(DescribeContributorInsights);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeContributorInsights, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeContributorInsights",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeContributorInsightsOutcome>(
     [&]()-> DescribeContributorInsightsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -789,6 +837,10 @@ DescribeEndpointsOutcome DynamoDBClient::DescribeEndpoints(const DescribeEndpoin
 {
   AWS_OPERATION_GUARD(DescribeEndpoints);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeEndpoints, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeEndpoints",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeEndpointsOutcome>(
     [&]()-> DescribeEndpointsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -808,6 +860,10 @@ DescribeExportOutcome DynamoDBClient::DescribeExport(const DescribeExportRequest
 {
   AWS_OPERATION_GUARD(DescribeExport);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeExport, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeExport",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeExportOutcome>(
     [&]()-> DescribeExportOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -827,6 +883,10 @@ DescribeGlobalTableOutcome DynamoDBClient::DescribeGlobalTable(const DescribeGlo
 {
   AWS_OPERATION_GUARD(DescribeGlobalTable);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeGlobalTable, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeGlobalTable",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeGlobalTableOutcome>(
     [&]()-> DescribeGlobalTableOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -881,6 +941,10 @@ DescribeGlobalTableSettingsOutcome DynamoDBClient::DescribeGlobalTableSettings(c
 {
   AWS_OPERATION_GUARD(DescribeGlobalTableSettings);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeGlobalTableSettings, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeGlobalTableSettings",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeGlobalTableSettingsOutcome>(
     [&]()-> DescribeGlobalTableSettingsOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -935,6 +999,10 @@ DescribeImportOutcome DynamoDBClient::DescribeImport(const DescribeImportRequest
 {
   AWS_OPERATION_GUARD(DescribeImport);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeImport, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeImport",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeImportOutcome>(
     [&]()-> DescribeImportOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -954,6 +1022,10 @@ DescribeKinesisStreamingDestinationOutcome DynamoDBClient::DescribeKinesisStream
 {
   AWS_OPERATION_GUARD(DescribeKinesisStreamingDestination);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeKinesisStreamingDestination, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeKinesisStreamingDestination",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeKinesisStreamingDestinationOutcome>(
     [&]()-> DescribeKinesisStreamingDestinationOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -1008,6 +1080,10 @@ DescribeLimitsOutcome DynamoDBClient::DescribeLimits(const DescribeLimitsRequest
 {
   AWS_OPERATION_GUARD(DescribeLimits);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeLimits, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeLimits",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeLimitsOutcome>(
     [&]()-> DescribeLimitsOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -1062,6 +1138,10 @@ DescribeTableOutcome DynamoDBClient::DescribeTable(const DescribeTableRequest& r
 {
   AWS_OPERATION_GUARD(DescribeTable);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeTable, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeTable",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeTableOutcome>(
     [&]()-> DescribeTableOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -1116,6 +1196,10 @@ DescribeTableReplicaAutoScalingOutcome DynamoDBClient::DescribeTableReplicaAutoS
 {
   AWS_OPERATION_GUARD(DescribeTableReplicaAutoScaling);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeTableReplicaAutoScaling, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeTableReplicaAutoScaling",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeTableReplicaAutoScalingOutcome>(
     [&]()-> DescribeTableReplicaAutoScalingOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1135,6 +1219,10 @@ DescribeTimeToLiveOutcome DynamoDBClient::DescribeTimeToLive(const DescribeTimeT
 {
   AWS_OPERATION_GUARD(DescribeTimeToLive);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeTimeToLive, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeTimeToLive",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeTimeToLiveOutcome>(
     [&]()-> DescribeTimeToLiveOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -1189,6 +1277,10 @@ DisableKinesisStreamingDestinationOutcome DynamoDBClient::DisableKinesisStreamin
 {
   AWS_OPERATION_GUARD(DisableKinesisStreamingDestination);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DisableKinesisStreamingDestination, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DisableKinesisStreamingDestination",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DisableKinesisStreamingDestinationOutcome>(
     [&]()-> DisableKinesisStreamingDestinationOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -1243,6 +1335,10 @@ EnableKinesisStreamingDestinationOutcome DynamoDBClient::EnableKinesisStreamingD
 {
   AWS_OPERATION_GUARD(EnableKinesisStreamingDestination);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, EnableKinesisStreamingDestination, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".EnableKinesisStreamingDestination",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<EnableKinesisStreamingDestinationOutcome>(
     [&]()-> EnableKinesisStreamingDestinationOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -1297,6 +1393,10 @@ ExecuteStatementOutcome DynamoDBClient::ExecuteStatement(const ExecuteStatementR
 {
   AWS_OPERATION_GUARD(ExecuteStatement);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ExecuteStatement, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ExecuteStatement",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ExecuteStatementOutcome>(
     [&]()-> ExecuteStatementOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1316,6 +1416,10 @@ ExecuteTransactionOutcome DynamoDBClient::ExecuteTransaction(const ExecuteTransa
 {
   AWS_OPERATION_GUARD(ExecuteTransaction);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ExecuteTransaction, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ExecuteTransaction",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ExecuteTransactionOutcome>(
     [&]()-> ExecuteTransactionOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1335,6 +1439,10 @@ ExportTableToPointInTimeOutcome DynamoDBClient::ExportTableToPointInTime(const E
 {
   AWS_OPERATION_GUARD(ExportTableToPointInTime);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ExportTableToPointInTime, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ExportTableToPointInTime",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ExportTableToPointInTimeOutcome>(
     [&]()-> ExportTableToPointInTimeOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1354,6 +1462,10 @@ GetItemOutcome DynamoDBClient::GetItem(const GetItemRequest& request) const
 {
   AWS_OPERATION_GUARD(GetItem);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetItem, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetItem",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetItemOutcome>(
     [&]()-> GetItemOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -1408,6 +1520,10 @@ ImportTableOutcome DynamoDBClient::ImportTable(const ImportTableRequest& request
 {
   AWS_OPERATION_GUARD(ImportTable);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ImportTable, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ImportTable",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ImportTableOutcome>(
     [&]()-> ImportTableOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1427,6 +1543,10 @@ ListBackupsOutcome DynamoDBClient::ListBackups(const ListBackupsRequest& request
 {
   AWS_OPERATION_GUARD(ListBackups);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListBackups, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListBackups",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListBackupsOutcome>(
     [&]()-> ListBackupsOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -1481,6 +1601,10 @@ ListContributorInsightsOutcome DynamoDBClient::ListContributorInsights(const Lis
 {
   AWS_OPERATION_GUARD(ListContributorInsights);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListContributorInsights, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListContributorInsights",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListContributorInsightsOutcome>(
     [&]()-> ListContributorInsightsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1500,6 +1624,10 @@ ListExportsOutcome DynamoDBClient::ListExports(const ListExportsRequest& request
 {
   AWS_OPERATION_GUARD(ListExports);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListExports, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListExports",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListExportsOutcome>(
     [&]()-> ListExportsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1519,6 +1647,10 @@ ListGlobalTablesOutcome DynamoDBClient::ListGlobalTables(const ListGlobalTablesR
 {
   AWS_OPERATION_GUARD(ListGlobalTables);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListGlobalTables, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListGlobalTables",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListGlobalTablesOutcome>(
     [&]()-> ListGlobalTablesOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -1573,6 +1705,10 @@ ListImportsOutcome DynamoDBClient::ListImports(const ListImportsRequest& request
 {
   AWS_OPERATION_GUARD(ListImports);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListImports, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListImports",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListImportsOutcome>(
     [&]()-> ListImportsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -1592,6 +1728,10 @@ ListTablesOutcome DynamoDBClient::ListTables(const ListTablesRequest& request) c
 {
   AWS_OPERATION_GUARD(ListTables);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListTables, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListTables",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListTablesOutcome>(
     [&]()-> ListTablesOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -1646,6 +1786,10 @@ ListTagsOfResourceOutcome DynamoDBClient::ListTagsOfResource(const ListTagsOfRes
 {
   AWS_OPERATION_GUARD(ListTagsOfResource);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListTagsOfResource, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListTagsOfResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListTagsOfResourceOutcome>(
     [&]()-> ListTagsOfResourceOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -1700,6 +1844,10 @@ PutItemOutcome DynamoDBClient::PutItem(const PutItemRequest& request) const
 {
   AWS_OPERATION_GUARD(PutItem);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, PutItem, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".PutItem",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<PutItemOutcome>(
     [&]()-> PutItemOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -1754,6 +1902,10 @@ QueryOutcome DynamoDBClient::Query(const QueryRequest& request) const
 {
   AWS_OPERATION_GUARD(Query);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, Query, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".Query",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<QueryOutcome>(
     [&]()-> QueryOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -1808,6 +1960,10 @@ RestoreTableFromBackupOutcome DynamoDBClient::RestoreTableFromBackup(const Resto
 {
   AWS_OPERATION_GUARD(RestoreTableFromBackup);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, RestoreTableFromBackup, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".RestoreTableFromBackup",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<RestoreTableFromBackupOutcome>(
     [&]()-> RestoreTableFromBackupOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -1862,6 +2018,10 @@ RestoreTableToPointInTimeOutcome DynamoDBClient::RestoreTableToPointInTime(const
 {
   AWS_OPERATION_GUARD(RestoreTableToPointInTime);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, RestoreTableToPointInTime, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".RestoreTableToPointInTime",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<RestoreTableToPointInTimeOutcome>(
     [&]()-> RestoreTableToPointInTimeOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -1916,6 +2076,10 @@ ScanOutcome DynamoDBClient::Scan(const ScanRequest& request) const
 {
   AWS_OPERATION_GUARD(Scan);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, Scan, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".Scan",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ScanOutcome>(
     [&]()-> ScanOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -1970,6 +2134,10 @@ TagResourceOutcome DynamoDBClient::TagResource(const TagResourceRequest& request
 {
   AWS_OPERATION_GUARD(TagResource);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, TagResource, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".TagResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<TagResourceOutcome>(
     [&]()-> TagResourceOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -2024,6 +2192,10 @@ TransactGetItemsOutcome DynamoDBClient::TransactGetItems(const TransactGetItemsR
 {
   AWS_OPERATION_GUARD(TransactGetItems);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, TransactGetItems, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".TransactGetItems",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<TransactGetItemsOutcome>(
     [&]()-> TransactGetItemsOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -2078,6 +2250,10 @@ TransactWriteItemsOutcome DynamoDBClient::TransactWriteItems(const TransactWrite
 {
   AWS_OPERATION_GUARD(TransactWriteItems);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, TransactWriteItems, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".TransactWriteItems",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<TransactWriteItemsOutcome>(
     [&]()-> TransactWriteItemsOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -2132,6 +2308,10 @@ UntagResourceOutcome DynamoDBClient::UntagResource(const UntagResourceRequest& r
 {
   AWS_OPERATION_GUARD(UntagResource);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UntagResource, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UntagResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UntagResourceOutcome>(
     [&]()-> UntagResourceOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -2186,6 +2366,10 @@ UpdateContinuousBackupsOutcome DynamoDBClient::UpdateContinuousBackups(const Upd
 {
   AWS_OPERATION_GUARD(UpdateContinuousBackups);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateContinuousBackups, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateContinuousBackups",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateContinuousBackupsOutcome>(
     [&]()-> UpdateContinuousBackupsOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -2240,6 +2424,10 @@ UpdateContributorInsightsOutcome DynamoDBClient::UpdateContributorInsights(const
 {
   AWS_OPERATION_GUARD(UpdateContributorInsights);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateContributorInsights, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateContributorInsights",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateContributorInsightsOutcome>(
     [&]()-> UpdateContributorInsightsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -2259,6 +2447,10 @@ UpdateGlobalTableOutcome DynamoDBClient::UpdateGlobalTable(const UpdateGlobalTab
 {
   AWS_OPERATION_GUARD(UpdateGlobalTable);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateGlobalTable, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateGlobalTable",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateGlobalTableOutcome>(
     [&]()-> UpdateGlobalTableOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -2313,6 +2505,10 @@ UpdateGlobalTableSettingsOutcome DynamoDBClient::UpdateGlobalTableSettings(const
 {
   AWS_OPERATION_GUARD(UpdateGlobalTableSettings);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateGlobalTableSettings, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateGlobalTableSettings",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateGlobalTableSettingsOutcome>(
     [&]()-> UpdateGlobalTableSettingsOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -2367,6 +2563,10 @@ UpdateItemOutcome DynamoDBClient::UpdateItem(const UpdateItemRequest& request) c
 {
   AWS_OPERATION_GUARD(UpdateItem);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateItem, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateItem",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateItemOutcome>(
     [&]()-> UpdateItemOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -2421,6 +2621,10 @@ UpdateTableOutcome DynamoDBClient::UpdateTable(const UpdateTableRequest& request
 {
   AWS_OPERATION_GUARD(UpdateTable);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateTable, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateTable",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateTableOutcome>(
     [&]()-> UpdateTableOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -2475,6 +2679,10 @@ UpdateTableReplicaAutoScalingOutcome DynamoDBClient::UpdateTableReplicaAutoScali
 {
   AWS_OPERATION_GUARD(UpdateTableReplicaAutoScaling);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateTableReplicaAutoScaling, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateTableReplicaAutoScaling",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateTableReplicaAutoScalingOutcome>(
     [&]()-> UpdateTableReplicaAutoScalingOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -2494,6 +2702,10 @@ UpdateTimeToLiveOutcome DynamoDBClient::UpdateTimeToLive(const UpdateTimeToLiveR
 {
   AWS_OPERATION_GUARD(UpdateTimeToLive);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateTimeToLive, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateTimeToLive",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateTimeToLiveOutcome>(
     [&]()-> UpdateTimeToLiveOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();

@@ -164,6 +164,10 @@ AssociateMemberAccountOutcome MacieClient::AssociateMemberAccount(const Associat
 {
   AWS_OPERATION_GUARD(AssociateMemberAccount);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AssociateMemberAccount, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AssociateMemberAccount",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AssociateMemberAccountOutcome>(
     [&]()-> AssociateMemberAccountOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -183,6 +187,10 @@ AssociateS3ResourcesOutcome MacieClient::AssociateS3Resources(const AssociateS3R
 {
   AWS_OPERATION_GUARD(AssociateS3Resources);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, AssociateS3Resources, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".AssociateS3Resources",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<AssociateS3ResourcesOutcome>(
     [&]()-> AssociateS3ResourcesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -202,6 +210,10 @@ DisassociateMemberAccountOutcome MacieClient::DisassociateMemberAccount(const Di
 {
   AWS_OPERATION_GUARD(DisassociateMemberAccount);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DisassociateMemberAccount, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DisassociateMemberAccount",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DisassociateMemberAccountOutcome>(
     [&]()-> DisassociateMemberAccountOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -221,6 +233,10 @@ DisassociateS3ResourcesOutcome MacieClient::DisassociateS3Resources(const Disass
 {
   AWS_OPERATION_GUARD(DisassociateS3Resources);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DisassociateS3Resources, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DisassociateS3Resources",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DisassociateS3ResourcesOutcome>(
     [&]()-> DisassociateS3ResourcesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -240,6 +256,10 @@ ListMemberAccountsOutcome MacieClient::ListMemberAccounts(const ListMemberAccoun
 {
   AWS_OPERATION_GUARD(ListMemberAccounts);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListMemberAccounts, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListMemberAccounts",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListMemberAccountsOutcome>(
     [&]()-> ListMemberAccountsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -259,6 +279,10 @@ ListS3ResourcesOutcome MacieClient::ListS3Resources(const ListS3ResourcesRequest
 {
   AWS_OPERATION_GUARD(ListS3Resources);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListS3Resources, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListS3Resources",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListS3ResourcesOutcome>(
     [&]()-> ListS3ResourcesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -278,6 +302,10 @@ UpdateS3ResourcesOutcome MacieClient::UpdateS3Resources(const UpdateS3ResourcesR
 {
   AWS_OPERATION_GUARD(UpdateS3Resources);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateS3Resources, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateS3Resources",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateS3ResourcesOutcome>(
     [&]()-> UpdateS3ResourcesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(

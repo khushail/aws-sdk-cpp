@@ -162,6 +162,10 @@ DescribeServicesOutcome PricingClient::DescribeServices(const DescribeServicesRe
 {
   AWS_OPERATION_GUARD(DescribeServices);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeServices, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeServices",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeServicesOutcome>(
     [&]()-> DescribeServicesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -181,6 +185,10 @@ GetAttributeValuesOutcome PricingClient::GetAttributeValues(const GetAttributeVa
 {
   AWS_OPERATION_GUARD(GetAttributeValues);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetAttributeValues, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetAttributeValues",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetAttributeValuesOutcome>(
     [&]()-> GetAttributeValuesOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -200,6 +208,10 @@ GetPriceListFileUrlOutcome PricingClient::GetPriceListFileUrl(const GetPriceList
 {
   AWS_OPERATION_GUARD(GetPriceListFileUrl);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetPriceListFileUrl, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetPriceListFileUrl",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetPriceListFileUrlOutcome>(
     [&]()-> GetPriceListFileUrlOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -219,6 +231,10 @@ GetProductsOutcome PricingClient::GetProducts(const GetProductsRequest& request)
 {
   AWS_OPERATION_GUARD(GetProducts);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetProducts, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetProducts",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetProductsOutcome>(
     [&]()-> GetProductsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -238,6 +254,10 @@ ListPriceListsOutcome PricingClient::ListPriceLists(const ListPriceListsRequest&
 {
   AWS_OPERATION_GUARD(ListPriceLists);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListPriceLists, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListPriceLists",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListPriceListsOutcome>(
     [&]()-> ListPriceListsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(

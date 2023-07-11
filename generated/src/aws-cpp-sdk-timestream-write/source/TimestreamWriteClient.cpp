@@ -177,6 +177,10 @@ CreateBatchLoadTaskOutcome TimestreamWriteClient::CreateBatchLoadTask(const Crea
 {
   AWS_OPERATION_GUARD(CreateBatchLoadTask);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateBatchLoadTask, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateBatchLoadTask",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateBatchLoadTaskOutcome>(
     [&]()-> CreateBatchLoadTaskOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -239,6 +243,10 @@ CreateDatabaseOutcome TimestreamWriteClient::CreateDatabase(const CreateDatabase
 {
   AWS_OPERATION_GUARD(CreateDatabase);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateDatabase, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateDatabase",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateDatabaseOutcome>(
     [&]()-> CreateDatabaseOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -301,6 +309,10 @@ CreateTableOutcome TimestreamWriteClient::CreateTable(const CreateTableRequest& 
 {
   AWS_OPERATION_GUARD(CreateTable);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateTable, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateTable",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateTableOutcome>(
     [&]()-> CreateTableOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -363,6 +375,10 @@ DeleteDatabaseOutcome TimestreamWriteClient::DeleteDatabase(const DeleteDatabase
 {
   AWS_OPERATION_GUARD(DeleteDatabase);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteDatabase, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteDatabase",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteDatabaseOutcome>(
     [&]()-> DeleteDatabaseOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -425,6 +441,10 @@ DeleteTableOutcome TimestreamWriteClient::DeleteTable(const DeleteTableRequest& 
 {
   AWS_OPERATION_GUARD(DeleteTable);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DeleteTable, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteTable",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteTableOutcome>(
     [&]()-> DeleteTableOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -487,6 +507,10 @@ DescribeBatchLoadTaskOutcome TimestreamWriteClient::DescribeBatchLoadTask(const 
 {
   AWS_OPERATION_GUARD(DescribeBatchLoadTask);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeBatchLoadTask, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeBatchLoadTask",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeBatchLoadTaskOutcome>(
     [&]()-> DescribeBatchLoadTaskOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -549,6 +573,10 @@ DescribeDatabaseOutcome TimestreamWriteClient::DescribeDatabase(const DescribeDa
 {
   AWS_OPERATION_GUARD(DescribeDatabase);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeDatabase, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeDatabase",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeDatabaseOutcome>(
     [&]()-> DescribeDatabaseOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -611,6 +639,10 @@ DescribeEndpointsOutcome TimestreamWriteClient::DescribeEndpoints(const Describe
 {
   AWS_OPERATION_GUARD(DescribeEndpoints);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeEndpoints, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeEndpoints",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeEndpointsOutcome>(
     [&]()-> DescribeEndpointsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -630,6 +662,10 @@ DescribeTableOutcome TimestreamWriteClient::DescribeTable(const DescribeTableReq
 {
   AWS_OPERATION_GUARD(DescribeTable);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeTable, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeTable",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeTableOutcome>(
     [&]()-> DescribeTableOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -692,6 +728,10 @@ ListBatchLoadTasksOutcome TimestreamWriteClient::ListBatchLoadTasks(const ListBa
 {
   AWS_OPERATION_GUARD(ListBatchLoadTasks);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListBatchLoadTasks, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListBatchLoadTasks",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListBatchLoadTasksOutcome>(
     [&]()-> ListBatchLoadTasksOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -754,6 +794,10 @@ ListDatabasesOutcome TimestreamWriteClient::ListDatabases(const ListDatabasesReq
 {
   AWS_OPERATION_GUARD(ListDatabases);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListDatabases, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListDatabases",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListDatabasesOutcome>(
     [&]()-> ListDatabasesOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -816,6 +860,10 @@ ListTablesOutcome TimestreamWriteClient::ListTables(const ListTablesRequest& req
 {
   AWS_OPERATION_GUARD(ListTables);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListTables, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListTables",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListTablesOutcome>(
     [&]()-> ListTablesOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -878,6 +926,10 @@ ListTagsForResourceOutcome TimestreamWriteClient::ListTagsForResource(const List
 {
   AWS_OPERATION_GUARD(ListTagsForResource);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListTagsForResource, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListTagsForResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListTagsForResourceOutcome>(
     [&]()-> ListTagsForResourceOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -940,6 +992,10 @@ ResumeBatchLoadTaskOutcome TimestreamWriteClient::ResumeBatchLoadTask(const Resu
 {
   AWS_OPERATION_GUARD(ResumeBatchLoadTask);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ResumeBatchLoadTask, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ResumeBatchLoadTask",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResumeBatchLoadTaskOutcome>(
     [&]()-> ResumeBatchLoadTaskOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -1002,6 +1058,10 @@ TagResourceOutcome TimestreamWriteClient::TagResource(const TagResourceRequest& 
 {
   AWS_OPERATION_GUARD(TagResource);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, TagResource, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".TagResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<TagResourceOutcome>(
     [&]()-> TagResourceOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -1064,6 +1124,10 @@ UntagResourceOutcome TimestreamWriteClient::UntagResource(const UntagResourceReq
 {
   AWS_OPERATION_GUARD(UntagResource);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UntagResource, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UntagResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UntagResourceOutcome>(
     [&]()-> UntagResourceOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -1126,6 +1190,10 @@ UpdateDatabaseOutcome TimestreamWriteClient::UpdateDatabase(const UpdateDatabase
 {
   AWS_OPERATION_GUARD(UpdateDatabase);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateDatabase, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateDatabase",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateDatabaseOutcome>(
     [&]()-> UpdateDatabaseOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -1188,6 +1256,10 @@ UpdateTableOutcome TimestreamWriteClient::UpdateTable(const UpdateTableRequest& 
 {
   AWS_OPERATION_GUARD(UpdateTable);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, UpdateTable, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UpdateTable",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UpdateTableOutcome>(
     [&]()-> UpdateTableOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();
@@ -1250,6 +1322,10 @@ WriteRecordsOutcome TimestreamWriteClient::WriteRecords(const WriteRecordsReques
 {
   AWS_OPERATION_GUARD(WriteRecords);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, WriteRecords, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".WriteRecords",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<WriteRecordsOutcome>(
     [&]()-> WriteRecordsOutcome {
       ResolveEndpointOutcome endpointResolutionOutcome = Aws::Endpoint::AWSEndpoint();

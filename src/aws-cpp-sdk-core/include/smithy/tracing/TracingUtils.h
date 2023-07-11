@@ -68,7 +68,7 @@ namespace smithy {
                 }
 
                 static std::pair<Aws::String, Aws::String> ConvertCoreMetricToSmithy(const Aws::String &name) {
-                    static std::map<int, std::pair<Aws::String, Aws::String>> metricsTypeToName =
+                    static Aws::Map<int, std::pair<Aws::String, Aws::String>> metricsTypeToName =
                         {
                             std::pair<int, std::pair<Aws::String, Aws::String>>(
                                 static_cast<int>(Aws::Monitoring::HttpClientMetricsType::DnsLatency),

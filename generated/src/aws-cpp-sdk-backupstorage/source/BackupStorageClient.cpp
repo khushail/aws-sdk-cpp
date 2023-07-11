@@ -176,6 +176,10 @@ DeleteObjectOutcome BackupStorageClient::DeleteObject(const DeleteObjectRequest&
     AWS_LOGSTREAM_ERROR("DeleteObject", "Required field: ObjectName, is not set");
     return DeleteObjectOutcome(Aws::Client::AWSError<BackupStorageErrors>(BackupStorageErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ObjectName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteObject",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteObjectOutcome>(
     [&]()-> DeleteObjectOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -209,6 +213,10 @@ GetChunkOutcome BackupStorageClient::GetChunk(const GetChunkRequest& request) co
     AWS_LOGSTREAM_ERROR("GetChunk", "Required field: ChunkToken, is not set");
     return GetChunkOutcome(Aws::Client::AWSError<BackupStorageErrors>(BackupStorageErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ChunkToken]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetChunk",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetChunkOutcome>(
     [&]()-> GetChunkOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -242,6 +250,10 @@ GetObjectMetadataOutcome BackupStorageClient::GetObjectMetadata(const GetObjectM
     AWS_LOGSTREAM_ERROR("GetObjectMetadata", "Required field: ObjectToken, is not set");
     return GetObjectMetadataOutcome(Aws::Client::AWSError<BackupStorageErrors>(BackupStorageErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ObjectToken]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetObjectMetadata",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetObjectMetadataOutcome>(
     [&]()-> GetObjectMetadataOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -276,6 +288,10 @@ ListChunksOutcome BackupStorageClient::ListChunks(const ListChunksRequest& reque
     AWS_LOGSTREAM_ERROR("ListChunks", "Required field: ObjectToken, is not set");
     return ListChunksOutcome(Aws::Client::AWSError<BackupStorageErrors>(BackupStorageErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ObjectToken]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListChunks",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListChunksOutcome>(
     [&]()-> ListChunksOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -305,6 +321,10 @@ ListObjectsOutcome BackupStorageClient::ListObjects(const ListObjectsRequest& re
     AWS_LOGSTREAM_ERROR("ListObjects", "Required field: StorageJobId, is not set");
     return ListObjectsOutcome(Aws::Client::AWSError<BackupStorageErrors>(BackupStorageErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [StorageJobId]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListObjects",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListObjectsOutcome>(
     [&]()-> ListObjectsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -347,6 +367,10 @@ NotifyObjectCompleteOutcome BackupStorageClient::NotifyObjectComplete(const Noti
     AWS_LOGSTREAM_ERROR("NotifyObjectComplete", "Required field: ObjectChecksumAlgorithm, is not set");
     return NotifyObjectCompleteOutcome(Aws::Client::AWSError<BackupStorageErrors>(BackupStorageErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ObjectChecksumAlgorithm]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".NotifyObjectComplete",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<NotifyObjectCompleteOutcome>(
     [&]()-> NotifyObjectCompleteOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -401,6 +425,10 @@ PutChunkOutcome BackupStorageClient::PutChunk(const PutChunkRequest& request) co
     AWS_LOGSTREAM_ERROR("PutChunk", "Required field: ChecksumAlgorithm, is not set");
     return PutChunkOutcome(Aws::Client::AWSError<BackupStorageErrors>(BackupStorageErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ChecksumAlgorithm]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".PutChunk",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<PutChunkOutcome>(
     [&]()-> PutChunkOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -435,6 +463,10 @@ PutObjectOutcome BackupStorageClient::PutObject(const PutObjectRequest& request)
     AWS_LOGSTREAM_ERROR("PutObject", "Required field: ObjectName, is not set");
     return PutObjectOutcome(Aws::Client::AWSError<BackupStorageErrors>(BackupStorageErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ObjectName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".PutObject",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<PutObjectOutcome>(
     [&]()-> PutObjectOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -469,6 +501,10 @@ StartObjectOutcome BackupStorageClient::StartObject(const StartObjectRequest& re
     AWS_LOGSTREAM_ERROR("StartObject", "Required field: ObjectName, is not set");
     return StartObjectOutcome(Aws::Client::AWSError<BackupStorageErrors>(BackupStorageErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ObjectName]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".StartObject",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<StartObjectOutcome>(
     [&]()-> StartObjectOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(

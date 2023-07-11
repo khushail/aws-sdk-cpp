@@ -160,6 +160,10 @@ CreateHomeRegionControlOutcome MigrationHubConfigClient::CreateHomeRegionControl
 {
   AWS_OPERATION_GUARD(CreateHomeRegionControl);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, CreateHomeRegionControl, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".CreateHomeRegionControl",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<CreateHomeRegionControlOutcome>(
     [&]()-> CreateHomeRegionControlOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -179,6 +183,10 @@ DescribeHomeRegionControlsOutcome MigrationHubConfigClient::DescribeHomeRegionCo
 {
   AWS_OPERATION_GUARD(DescribeHomeRegionControls);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, DescribeHomeRegionControls, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DescribeHomeRegionControls",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DescribeHomeRegionControlsOutcome>(
     [&]()-> DescribeHomeRegionControlsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -198,6 +206,10 @@ GetHomeRegionOutcome MigrationHubConfigClient::GetHomeRegion(const GetHomeRegion
 {
   AWS_OPERATION_GUARD(GetHomeRegion);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, GetHomeRegion, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetHomeRegion",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetHomeRegionOutcome>(
     [&]()-> GetHomeRegionOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(

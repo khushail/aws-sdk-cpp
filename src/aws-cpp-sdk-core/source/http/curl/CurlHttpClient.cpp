@@ -574,9 +574,6 @@ CurlHttpClient::CurlHttpClient(const ClientConfiguration& clientConfig) :
         }
         m_nonProxyHosts = ss.str();
     }
-    if (m_telemetryProvider) {
-        m_telemetryProvider->RunInit();
-    }
 }
 
 

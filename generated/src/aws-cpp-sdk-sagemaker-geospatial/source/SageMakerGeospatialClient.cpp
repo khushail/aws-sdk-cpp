@@ -181,6 +181,10 @@ DeleteEarthObservationJobOutcome SageMakerGeospatialClient::DeleteEarthObservati
     AWS_LOGSTREAM_ERROR("DeleteEarthObservationJob", "Required field: Arn, is not set");
     return DeleteEarthObservationJobOutcome(Aws::Client::AWSError<SageMakerGeospatialErrors>(SageMakerGeospatialErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Arn]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteEarthObservationJob",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteEarthObservationJobOutcome>(
     [&]()-> DeleteEarthObservationJobOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -207,6 +211,10 @@ DeleteVectorEnrichmentJobOutcome SageMakerGeospatialClient::DeleteVectorEnrichme
     AWS_LOGSTREAM_ERROR("DeleteVectorEnrichmentJob", "Required field: Arn, is not set");
     return DeleteVectorEnrichmentJobOutcome(Aws::Client::AWSError<SageMakerGeospatialErrors>(SageMakerGeospatialErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Arn]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".DeleteVectorEnrichmentJob",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<DeleteVectorEnrichmentJobOutcome>(
     [&]()-> DeleteVectorEnrichmentJobOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -228,6 +236,10 @@ ExportEarthObservationJobOutcome SageMakerGeospatialClient::ExportEarthObservati
 {
   AWS_OPERATION_GUARD(ExportEarthObservationJob);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ExportEarthObservationJob, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ExportEarthObservationJob",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ExportEarthObservationJobOutcome>(
     [&]()-> ExportEarthObservationJobOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -248,6 +260,10 @@ ExportVectorEnrichmentJobOutcome SageMakerGeospatialClient::ExportVectorEnrichme
 {
   AWS_OPERATION_GUARD(ExportVectorEnrichmentJob);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ExportVectorEnrichmentJob, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ExportVectorEnrichmentJob",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ExportVectorEnrichmentJobOutcome>(
     [&]()-> ExportVectorEnrichmentJobOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -273,6 +289,10 @@ GetEarthObservationJobOutcome SageMakerGeospatialClient::GetEarthObservationJob(
     AWS_LOGSTREAM_ERROR("GetEarthObservationJob", "Required field: Arn, is not set");
     return GetEarthObservationJobOutcome(Aws::Client::AWSError<SageMakerGeospatialErrors>(SageMakerGeospatialErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Arn]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetEarthObservationJob",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetEarthObservationJobOutcome>(
     [&]()-> GetEarthObservationJobOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -299,6 +319,10 @@ GetRasterDataCollectionOutcome SageMakerGeospatialClient::GetRasterDataCollectio
     AWS_LOGSTREAM_ERROR("GetRasterDataCollection", "Required field: Arn, is not set");
     return GetRasterDataCollectionOutcome(Aws::Client::AWSError<SageMakerGeospatialErrors>(SageMakerGeospatialErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Arn]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetRasterDataCollection",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetRasterDataCollectionOutcome>(
     [&]()-> GetRasterDataCollectionOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -350,6 +374,10 @@ GetTileOutcome SageMakerGeospatialClient::GetTile(const GetTileRequest& request)
     AWS_LOGSTREAM_ERROR("GetTile", "Required field: Z, is not set");
     return GetTileOutcome(Aws::Client::AWSError<SageMakerGeospatialErrors>(SageMakerGeospatialErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Z]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetTile",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetTileOutcome>(
     [&]()-> GetTileOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -378,6 +406,10 @@ GetVectorEnrichmentJobOutcome SageMakerGeospatialClient::GetVectorEnrichmentJob(
     AWS_LOGSTREAM_ERROR("GetVectorEnrichmentJob", "Required field: Arn, is not set");
     return GetVectorEnrichmentJobOutcome(Aws::Client::AWSError<SageMakerGeospatialErrors>(SageMakerGeospatialErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Arn]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".GetVectorEnrichmentJob",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<GetVectorEnrichmentJobOutcome>(
     [&]()-> GetVectorEnrichmentJobOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -399,6 +431,10 @@ ListEarthObservationJobsOutcome SageMakerGeospatialClient::ListEarthObservationJ
 {
   AWS_OPERATION_GUARD(ListEarthObservationJobs);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListEarthObservationJobs, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListEarthObservationJobs",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListEarthObservationJobsOutcome>(
     [&]()-> ListEarthObservationJobsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -419,6 +455,10 @@ ListRasterDataCollectionsOutcome SageMakerGeospatialClient::ListRasterDataCollec
 {
   AWS_OPERATION_GUARD(ListRasterDataCollections);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListRasterDataCollections, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListRasterDataCollections",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListRasterDataCollectionsOutcome>(
     [&]()-> ListRasterDataCollectionsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -444,6 +484,10 @@ ListTagsForResourceOutcome SageMakerGeospatialClient::ListTagsForResource(const 
     AWS_LOGSTREAM_ERROR("ListTagsForResource", "Required field: ResourceArn, is not set");
     return ListTagsForResourceOutcome(Aws::Client::AWSError<SageMakerGeospatialErrors>(SageMakerGeospatialErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListTagsForResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListTagsForResourceOutcome>(
     [&]()-> ListTagsForResourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -465,6 +509,10 @@ ListVectorEnrichmentJobsOutcome SageMakerGeospatialClient::ListVectorEnrichmentJ
 {
   AWS_OPERATION_GUARD(ListVectorEnrichmentJobs);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, ListVectorEnrichmentJobs, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".ListVectorEnrichmentJobs",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<ListVectorEnrichmentJobsOutcome>(
     [&]()-> ListVectorEnrichmentJobsOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -485,6 +533,10 @@ SearchRasterDataCollectionOutcome SageMakerGeospatialClient::SearchRasterDataCol
 {
   AWS_OPERATION_GUARD(SearchRasterDataCollection);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, SearchRasterDataCollection, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".SearchRasterDataCollection",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<SearchRasterDataCollectionOutcome>(
     [&]()-> SearchRasterDataCollectionOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -505,6 +557,10 @@ StartEarthObservationJobOutcome SageMakerGeospatialClient::StartEarthObservation
 {
   AWS_OPERATION_GUARD(StartEarthObservationJob);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, StartEarthObservationJob, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".StartEarthObservationJob",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<StartEarthObservationJobOutcome>(
     [&]()-> StartEarthObservationJobOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -525,6 +581,10 @@ StartVectorEnrichmentJobOutcome SageMakerGeospatialClient::StartVectorEnrichment
 {
   AWS_OPERATION_GUARD(StartVectorEnrichmentJob);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, StartVectorEnrichmentJob, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".StartVectorEnrichmentJob",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<StartVectorEnrichmentJobOutcome>(
     [&]()-> StartVectorEnrichmentJobOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -545,6 +605,10 @@ StopEarthObservationJobOutcome SageMakerGeospatialClient::StopEarthObservationJo
 {
   AWS_OPERATION_GUARD(StopEarthObservationJob);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, StopEarthObservationJob, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".StopEarthObservationJob",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<StopEarthObservationJobOutcome>(
     [&]()-> StopEarthObservationJobOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -565,6 +629,10 @@ StopVectorEnrichmentJobOutcome SageMakerGeospatialClient::StopVectorEnrichmentJo
 {
   AWS_OPERATION_GUARD(StopVectorEnrichmentJob);
   AWS_OPERATION_CHECK_PTR(m_endpointProvider, StopVectorEnrichmentJob, CoreErrors, CoreErrors::ENDPOINT_RESOLUTION_FAILURE);
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".StopVectorEnrichmentJob",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<StopVectorEnrichmentJobOutcome>(
     [&]()-> StopVectorEnrichmentJobOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -590,6 +658,10 @@ TagResourceOutcome SageMakerGeospatialClient::TagResource(const TagResourceReque
     AWS_LOGSTREAM_ERROR("TagResource", "Required field: ResourceArn, is not set");
     return TagResourceOutcome(Aws::Client::AWSError<SageMakerGeospatialErrors>(SageMakerGeospatialErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".TagResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<TagResourceOutcome>(
     [&]()-> TagResourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(
@@ -621,6 +693,10 @@ UntagResourceOutcome SageMakerGeospatialClient::UntagResource(const UntagResourc
     AWS_LOGSTREAM_ERROR("UntagResource", "Required field: TagKeys, is not set");
     return UntagResourceOutcome(Aws::Client::AWSError<SageMakerGeospatialErrors>(SageMakerGeospatialErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TagKeys]", false));
   }
+  auto tracer = m_telemetryProvider->getTracer(this->GetServiceClientName(), {});
+  auto span = tracer->CreateSpan(Aws::String(this->GetServiceClientName()) + ".UntagResource",
+    {{ "rpc.method", request.GetServiceRequestName() }, { "rpc.service", this->GetServiceClientName() }, { "rpc.system", "aws-api" }},
+    smithy::components::tracing::SpanKind::CLIENT);
   return smithy::components::tracing::TracingUtils::MakeCallWithTiming<UntagResourceOutcome>(
     [&]()-> UntagResourceOutcome {
       auto endpointResolutionOutcome = smithy::components::tracing::TracingUtils::MakeCallWithTiming<ResolveEndpointOutcome>(

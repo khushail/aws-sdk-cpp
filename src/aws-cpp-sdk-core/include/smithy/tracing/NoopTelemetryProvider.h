@@ -20,6 +20,7 @@ namespace smithy {
                     return Aws::MakeUnique<TelemetryProvider>("NO_OP",
                         Aws::MakeUnique<NoopTracerProvider>("NO_OP", Aws::MakeUnique<NoopTracer>("NO_OP")),
                         Aws::MakeUnique<NoopMeterProvider>("NO_OP"),
+                        []() -> void {},
                         []() -> void {});
                 }
             };

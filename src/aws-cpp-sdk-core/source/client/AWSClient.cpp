@@ -132,9 +132,6 @@ AWSClient::AWSClient(const Aws::Client::ClientConfiguration& configuration,
     m_requestCompressionConfig(configuration.requestCompressionConfig)
 {
     AWSClient::SetServiceClientName("AWSBaseClient");
-    if (m_telemetryProvider) {
-        m_telemetryProvider->RunInit();
-    }
 }
 
 AWSClient::AWSClient(const Aws::Client::ClientConfiguration& configuration,
@@ -156,9 +153,6 @@ AWSClient::AWSClient(const Aws::Client::ClientConfiguration& configuration,
     m_requestCompressionConfig(configuration.requestCompressionConfig)
 {
     AWSClient::SetServiceClientName("AWSBaseClient");
-    if (m_telemetryProvider) {
-        m_telemetryProvider->RunInit();
-    }
 }
 
 void AWSClient::SetServiceClientName(const Aws::String& name)
