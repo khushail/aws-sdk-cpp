@@ -35,7 +35,7 @@ namespace smithy {
                     auto after = std::chrono::high_resolution_clock::now();
                     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(after - before).count();
                     auto histogram = meter->CreateHistogram(std::move(metricName), "ms", std::move(description));
-                    histogram->record(duration, std::move(attributes));
+                    histogram->record((double)duration, std::move(attributes));
                     return returnValue;
                 }
 
@@ -49,7 +49,7 @@ namespace smithy {
                     auto after = std::chrono::high_resolution_clock::now();
                     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(after - before).count();
                     auto histogram = meter->CreateHistogram(std::move(metricName), "ms", std::move(description));
-                    histogram->record(duration, std::move(attributes));
+                    histogram->record((double)duration, std::move(attributes));
                 }
 
                 static void EmitCoreHttpMetrics(const Aws::Monitoring::HttpClientMetricsCollection &metrics,
@@ -62,13 +62,13 @@ namespace smithy {
                             auto histogram = meter->CreateHistogram(std::move(smithyMetric.first),
                                 smithyMetric.second,
                                 std::move(description));
-                            histogram->record(entry.second, std::move(attributes));
+                            histogram->record((double)entry.second, std::move(attributes));
                         }
                     }
                 }
 
                 static std::pair<Aws::String, Aws::String> ConvertCoreMetricToSmithy(const Aws::String &name) {
-                    static Aws::Map<int, std::pair<Aws::String, Aws::String>> metricsTypeToName =
+                    Aws::Map<int, std::pair<Aws::String, Aws::String>> metricsTypeToName =
                         {
                             std::pair<int, std::pair<Aws::String, Aws::String>>(
                                 static_cast<int>(Aws::Monitoring::HttpClientMetricsType::DnsLatency),

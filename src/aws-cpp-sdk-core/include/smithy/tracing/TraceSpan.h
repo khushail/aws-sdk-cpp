@@ -36,7 +36,7 @@ namespace smithy {
              */
             class SMITHY_API TraceSpan {
             public:
-                TraceSpan(Aws::String name) : name(std::move(name)) {}
+                TraceSpan(Aws::String name) : m_name(std::move(name)) {}
 
                 virtual ~TraceSpan() = default;
 
@@ -49,7 +49,7 @@ namespace smithy {
                 virtual void end() = 0;
 
             private:
-                Aws::String name;
+                Aws::String m_name;
             };
         }
     }

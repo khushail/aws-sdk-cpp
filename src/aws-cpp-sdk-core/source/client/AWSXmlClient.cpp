@@ -20,6 +20,7 @@
 #include <aws/core/utils/logging/LogMacros.h>
 #include <aws/core/utils/event/EventStream.h>
 #include <aws/core/utils/UUID.h>
+#include <smithy/tracing/TracingUtils.h>
 
 using namespace Aws;
 using namespace Aws::Client;

@@ -24,7 +24,7 @@ namespace Aws
         using namespace Aws::Utils;
         HttpClientMetricsType GetHttpClientMetricTypeByName(const Aws::String& name)
         {
-            static std::map<int, HttpClientMetricsType> metricsNameHashToType =
+            Aws::Map<int, HttpClientMetricsType> metricsNameHashToType =
             {
                 std::pair<int, HttpClientMetricsType>(HashingUtils::HashString(HTTP_CLIENT_METRICS_DESTINATION_IP), HttpClientMetricsType::DestinationIp),
                 std::pair<int, HttpClientMetricsType>(HashingUtils::HashString(HTTP_CLIENT_METRICS_ACQUIRE_CONNECTION_LATENCY), HttpClientMetricsType::AcquireConnectionLatency),
@@ -48,18 +48,18 @@ namespace Aws
 
         Aws::String GetHttpClientMetricNameByType(HttpClientMetricsType type)
         {
-            static std::map<int, std::string> metricsTypeToName =
+            Aws::Map<int, Aws::String> metricsTypeToName =
             {
-                std::pair<int, std::string>(static_cast<int>(HttpClientMetricsType::DestinationIp), HTTP_CLIENT_METRICS_DESTINATION_IP),
-                std::pair<int, std::string>(static_cast<int>(HttpClientMetricsType::AcquireConnectionLatency), HTTP_CLIENT_METRICS_ACQUIRE_CONNECTION_LATENCY),
-                std::pair<int, std::string>(static_cast<int>(HttpClientMetricsType::ConnectionReused), HTTP_CLIENT_METRICS_CONNECTION_REUSED),
-                std::pair<int, std::string>(static_cast<int>(HttpClientMetricsType::ConnectLatency), HTTP_CLIENT_METRICS_CONNECTION_LATENCY),
-                std::pair<int, std::string>(static_cast<int>(HttpClientMetricsType::RequestLatency), HTTP_CLIENT_METRICS_REQUEST_LATENCY),
-                std::pair<int, std::string>(static_cast<int>(HttpClientMetricsType::DnsLatency), HTTP_CLIENT_METRICS_DNS_LATENCY),
-                std::pair<int, std::string>(static_cast<int>(HttpClientMetricsType::TcpLatency), HTTP_CLIENT_METRICS_TCP_LATENCY),
-                std::pair<int, std::string>(static_cast<int>(HttpClientMetricsType::SslLatency), HTTP_CLIENT_METRICS_SSL_LATENCY),
-                std::pair<int, std::string>(static_cast<int>(HttpClientMetricsType::Throughput), HTTP_CLIENT_METRICS_THROUGHPUT),
-                std::pair<int, std::string>(static_cast<int>(HttpClientMetricsType::Unknown), HTTP_CLIENT_METRICS_UNKNOWN),
+                std::pair<int, Aws::String>(static_cast<int>(HttpClientMetricsType::DestinationIp), HTTP_CLIENT_METRICS_DESTINATION_IP),
+                std::pair<int, Aws::String>(static_cast<int>(HttpClientMetricsType::AcquireConnectionLatency), HTTP_CLIENT_METRICS_ACQUIRE_CONNECTION_LATENCY),
+                std::pair<int, Aws::String>(static_cast<int>(HttpClientMetricsType::ConnectionReused), HTTP_CLIENT_METRICS_CONNECTION_REUSED),
+                std::pair<int, Aws::String>(static_cast<int>(HttpClientMetricsType::ConnectLatency), HTTP_CLIENT_METRICS_CONNECTION_LATENCY),
+                std::pair<int, Aws::String>(static_cast<int>(HttpClientMetricsType::RequestLatency), HTTP_CLIENT_METRICS_REQUEST_LATENCY),
+                std::pair<int, Aws::String>(static_cast<int>(HttpClientMetricsType::DnsLatency), HTTP_CLIENT_METRICS_DNS_LATENCY),
+                std::pair<int, Aws::String>(static_cast<int>(HttpClientMetricsType::TcpLatency), HTTP_CLIENT_METRICS_TCP_LATENCY),
+                std::pair<int, Aws::String>(static_cast<int>(HttpClientMetricsType::SslLatency), HTTP_CLIENT_METRICS_SSL_LATENCY),
+                std::pair<int, Aws::String>(static_cast<int>(HttpClientMetricsType::Throughput), HTTP_CLIENT_METRICS_THROUGHPUT),
+                std::pair<int, Aws::String>(static_cast<int>(HttpClientMetricsType::Unknown), HTTP_CLIENT_METRICS_UNKNOWN),
             };
 
             auto it = metricsTypeToName.find(static_cast<int>(type));
